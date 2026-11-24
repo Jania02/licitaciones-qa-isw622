@@ -46,7 +46,17 @@ Reinicio y carga de datos sintéticos: _pendiente (issue de seed)_.
 
 ## Usuarios de prueba
 
-_Pendiente (issue de autenticación)._ Se documentarán aquí sin usar contraseñas reales.
+Al arrancar, la app crea el usuario definido en `.env` (`ADMIN_USER` / `ADMIN_PASSWORD`) si no existe.
+Con el `.env.example` por defecto: usuario `admin`, contraseña `admin123` (solo datos sintéticos).
+
+Las contraseñas se guardan con hash PBKDF2-SHA256. Todas las pantallas y la API (salvo `/login`,
+`/api/auth/login` y `/api/health`) requieren sesión iniciada:
+
+| Método | Ruta | Descripción |
+|---|---|---|
+| POST | `/api/auth/login` | JSON `{"username", "password"}` → 200 o 401 |
+| POST | `/api/auth/logout` | Cierra la sesión |
+| GET | `/api/auth/me` | Usuario actual o 401 |
 
 ## Flujo de trabajo Git
 

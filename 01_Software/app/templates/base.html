@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Licitaciones{% endblock %}</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="barra">
+    <span class="marca">Gestión de Licitaciones</span>
+    {% if usuario %}
+    <nav>
+      <a href="/">Inicio</a>
+    </nav>
+    <form method="post" action="/logout" class="salir">
+      <span>{{ usuario.username }}</span>
+      <button type="submit">Cerrar sesión</button>
+    </form>
+    {% endif %}
+  </header>
+  <main class="contenido">
+    {% block contenido %}{% endblock %}
+  </main>
+</body>
+</html>
