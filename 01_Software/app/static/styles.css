@@ -12,3 +12,16 @@ form input { width: 100%; padding: .5rem; margin-top: .25rem; border: 1px solid 
 button { margin-top: 1rem; padding: .5rem 1rem; border: 0; border-radius: 4px; background: #1d6fb8; color: #fff; cursor: pointer; }
 .barra button { margin-top: 0; background: #2d5f91; }
 .error { color: #b42318; background: #fdecea; padding: .5rem .75rem; border-radius: 4px; }
+nav { display: flex; gap: 1rem; }
+.en-linea { display: flex; flex-wrap: wrap; align-items: end; gap: .5rem; }
+.en-linea label { width: 100%; }
+.en-linea input { flex: 1; width: auto; }
+.en-linea button { margin-top: 0; }
+.ayuda { color: #52606d; font-size: .9rem; }
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th, td { text-align: left; padding: .5rem; border-bottom: 1px solid #e4e7eb; }
+.acciones { display: flex; gap: .75rem; align-items: center; }
+.acciones form { margin: 0; }
+.acciones button { margin-top: 0; }
+.peligro { background: #b42318; }
+.volver { margin-left: 1rem; }
