@@ -58,6 +58,23 @@ Las contraseñas se guardan con hash PBKDF2-SHA256. Todas las pantallas y la API
 | POST | `/api/auth/logout` | Cierra la sesión |
 | GET | `/api/auth/me` | Usuario actual o 401 |
 
+## API de Proveedores
+
+Pantalla web: http://127.0.0.1:8000/proveedores
+
+| Método | Ruta | Respuestas |
+|---|---|---|
+| GET | `/api/proveedores` | 200 lista ordenada por nombre |
+| GET | `/api/proveedores/{id}` | 200 o 404 |
+| POST | `/api/proveedores` | JSON `{"nombre"}` → 201, 400 (nombre inválido) o 409 (duplicado) |
+| PUT | `/api/proveedores/{id}` | 200, 400, 404 o 409 |
+| DELETE | `/api/proveedores/{id}` | 204 o 404 |
+
+Reglas (REQ-001, REQ-012): el nombre se recorta y se compactan los espacios; los duplicados se
+detectan sin distinguir mayúsculas y la BD los rechaza con una restricción UNIQUE; solo se aceptan
+letras, números, espacios, punto, coma y paréntesis (máx. 100). Los errores internos responden
+un mensaje genérico sin detalles.
+
 ## Flujo de trabajo Git
 
 1. Tomar un issue y crear una rama: `git checkout -b feat/<tema>`.
