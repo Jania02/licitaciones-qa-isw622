@@ -1,0 +1,1 @@
+Registros de IA saneados. Un archivo por intervención: IA-001_descripcion.md (herramienta, modelo, fecha, finalidad, prompt, salida, partes incorporadas, revisión humana). Sin secretos ni datos personales.
