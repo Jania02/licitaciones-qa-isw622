@@ -1,0 +1,49 @@
+EV-025 | BUG-001 antes de la corrección
+Commit probado: 955581d9acd28ddc5e1d7ffe9374d91857f7ccf6
+Fecha: 2026-11-25 09:32 -0600
+Comando: pytest -v tests/test_bug_001_cierre.py
+
+============================= test session starts =============================
+platform win32 -- python (entorno virtual)
+rootdir: C:\dev\licitaciones-qa-isw622\01_Software
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collecting ... collected 10 items
+
+tests/test_bug_001_cierre.py::test_cp010_unitaria_exactamente_al_cierre_se_rechaza FAILED [ 10%]
+tests/test_bug_001_cierre.py::test_cp010_api_exactamente_al_cierre_se_rechaza FAILED [ 20%]
+tests/test_bug_001_cierre.py::test_regresion_antes_del_cierre_se_acepta PASSED [ 30%]
+tests/test_bug_001_cierre.py::test_regresion_despues_del_cierre_se_rechaza PASSED [ 40%]
+tests/test_bug_001_cierre.py::test_regresion_estado_no_publicado_se_rechaza[Borrador] PASSED [ 50%]
+tests/test_bug_001_cierre.py::test_regresion_estado_no_publicado_se_rechaza[Cerrada] PASSED [ 60%]
+tests/test_bug_001_cierre.py::test_regresion_monto_invalido_se_rechaza[0] PASSED [ 70%]
+tests/test_bug_001_cierre.py::test_regresion_monto_invalido_se_rechaza[-1] PASSED [ 80%]
+tests/test_bug_001_cierre.py::test_regresion_monto_invalido_se_rechaza[100.01] PASSED [ 90%]
+tests/test_bug_001_cierre.py::test_regresion_api_antes_del_cierre_crea_la_oferta PASSED [100%]
+
+================================== FAILURES ===================================
+____________ test_cp010_unitaria_exactamente_al_cierre_se_rechaza _____________
+
+    def test_cp010_unitaria_exactamente_al_cierre_se_rechaza():
+>       with pytest.raises(HTTPException) as error:
+E       Failed: DID NOT RAISE <class 'fastapi.exceptions.HTTPException'>
+
+tests\test_bug_001_cierre.py:50: Failed
+_______________ test_cp010_api_exactamente_al_cierre_se_rechaza _______________
+
+client_autenticado = <starlette.testclient.TestClient object at 0x00000271BB93D940>
+datos_oferta = {'licitacion_id': 1, 'monto_crc': '100', 'proveedor_id': 1}
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000271BB873BB0>
+
+    def test_cp010_api_exactamente_al_cierre_se_rechaza(client_autenticado, datos_oferta, monkeypatch):
+        monkeypatch.setattr(ofertas, "ahora", lambda: CIERRE)
+        respuesta = client_autenticado.post("/api/ofertas", json=datos_oferta)
+>       assert respuesta.status_code == 400
+E       assert 201 == 400
+E        +  where 201 = <Response [201 Created]>.status_code
+
+tests\test_bug_001_cierre.py:58: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_bug_001_cierre.py::test_cp010_unitaria_exactamente_al_cierre_se_rechaza
+FAILED tests/test_bug_001_cierre.py::test_cp010_api_exactamente_al_cierre_se_rechaza
+========================= 2 failed, 8 passed in 0.23s =========================

@@ -1,0 +1,78 @@
+EV-025 | BUG-001 regresión y suite completa
+Commit probado: f00ad0267ce3f00c92f279c93c9f0878018bd92f
+Fecha: 2026-11-25 09:32 -0600
+Comando: pytest -v 
+
+============================= test session starts =============================
+platform win32 -- python (entorno virtual)
+rootdir: C:\dev\licitaciones-qa-isw622\01_Software
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 63 items
+
+tests/test_auth.py::test_inicio_sin_sesion_redirige_a_login PASSED       [  1%]
+tests/test_auth.py::test_login_web_correcto_entra_al_inicio PASSED       [  3%]
+tests/test_auth.py::test_login_web_contrasena_incorrecta_muestra_error PASSED [  4%]
+tests/test_auth.py::test_logout_web_cierra_la_sesion PASSED              [  6%]
+tests/test_auth.py::test_login_api_correcto PASSED                       [  7%]
+tests/test_auth.py::test_login_api_usuario_inexistente PASSED            [  9%]
+tests/test_auth.py::test_api_protegida_sin_sesion_responde_401 PASSED    [ 11%]
+tests/test_auth.py::test_api_me_con_sesion PASSED                        [ 12%]
+tests/test_auth.py::test_logout_api_invalida_la_sesion PASSED            [ 14%]
+tests/test_bug_001_cierre.py::test_cp010_unitaria_exactamente_al_cierre_se_rechaza PASSED [ 15%]
+tests/test_bug_001_cierre.py::test_cp010_api_exactamente_al_cierre_se_rechaza PASSED [ 17%]
+tests/test_bug_001_cierre.py::test_regresion_antes_del_cierre_se_acepta PASSED [ 19%]
+tests/test_bug_001_cierre.py::test_regresion_despues_del_cierre_se_rechaza PASSED [ 20%]
+tests/test_bug_001_cierre.py::test_regresion_estado_no_publicado_se_rechaza[Borrador] PASSED [ 22%]
+tests/test_bug_001_cierre.py::test_regresion_estado_no_publicado_se_rechaza[Cerrada] PASSED [ 23%]
+tests/test_bug_001_cierre.py::test_regresion_monto_invalido_se_rechaza[0] PASSED [ 25%]
+tests/test_bug_001_cierre.py::test_regresion_monto_invalido_se_rechaza[-1] PASSED [ 26%]
+tests/test_bug_001_cierre.py::test_regresion_monto_invalido_se_rechaza[100.01] PASSED [ 28%]
+tests/test_bug_001_cierre.py::test_regresion_api_antes_del_cierre_crea_la_oferta PASSED [ 30%]
+tests/test_health.py::test_health_responde_ok PASSED                     [ 31%]
+tests/test_proveedores_api.py::test_crear_proveedor_valido PASSED        [ 33%]
+tests/test_proveedores_api.py::test_listar_proveedores PASSED            [ 34%]
+tests/test_proveedores_api.py::test_duplicado_por_mayusculas_o_espacios_se_rechaza[tecnolog\xeda norte s.a.] PASSED [ 36%]
+tests/test_proveedores_api.py::test_duplicado_por_mayusculas_o_espacios_se_rechaza[TECNOLOG\xcdA NORTE S.A.] PASSED [ 38%]
+tests/test_proveedores_api.py::test_duplicado_por_mayusculas_o_espacios_se_rechaza[  Tecnolog\xeda    Norte   S.A.  ] PASSED [ 39%]
+tests/test_proveedores_api.py::test_bd_rechaza_duplicado_aunque_se_salte_la_validacion PASSED [ 41%]
+tests/test_proveedores_api.py::test_editar_proveedor PASSED              [ 42%]
+tests/test_proveedores_api.py::test_editar_cambiando_solo_mayusculas_de_su_propio_nombre PASSED [ 44%]
+tests/test_proveedores_api.py::test_editar_a_nombre_de_otro_proveedor_se_rechaza PASSED [ 46%]
+tests/test_proveedores_api.py::test_editar_inexistente_responde_404 PASSED [ 47%]
+tests/test_proveedores_api.py::test_eliminar_proveedor PASSED            [ 49%]
+tests/test_proveedores_api.py::test_api_rechaza_nombres_invalidos[Norte@Sur] PASSED [ 50%]
+tests/test_proveedores_api.py::test_api_rechaza_nombres_invalidos[<script>alert(1)</script>] PASSED [ 52%]
+tests/test_proveedores_api.py::test_api_rechaza_nombres_invalidos[   ] PASSED [ 53%]
+tests/test_proveedores_api.py::test_api_sin_sesion_responde_401 PASSED   [ 55%]
+tests/test_proveedores_api.py::test_web_muestra_script_rechazado_como_texto_escapado PASSED [ 57%]
+tests/test_proveedores_api.py::test_error_interno_no_expone_detalles PASSED [ 58%]
+tests/test_proveedores_api.py::test_web_crear_y_listar PASSED            [ 60%]
+tests/test_proveedores_api.py::test_web_duplicado_muestra_mensaje PASSED [ 61%]
+tests/test_proveedores_api.py::test_web_editar PASSED                    [ 63%]
+tests/test_proveedores_api.py::test_web_sin_sesion_redirige_a_login PASSED [ 65%]
+tests/test_proveedores_reglas.py::test_normalizar_recorta_y_compacta_espacios PASSED [ 66%]
+tests/test_proveedores_reglas.py::test_clave_ignora_mayusculas_y_espacios PASSED [ 68%]
+tests/test_proveedores_reglas.py::test_nombres_validos[Tecnolog\xeda Norte S.A.] PASSED [ 69%]
+tests/test_proveedores_reglas.py::test_nombres_validos[Servicios del Valle] PASSED [ 71%]
+tests/test_proveedores_reglas.py::test_nombres_validos[Ferreter\xeda P\xe9rez, Hijos (Sede 2)] PASSED [ 73%]
+tests/test_proveedores_reglas.py::test_nombres_validos[\xd1and\xfa 123] PASSED [ 74%]
+tests/test_proveedores_reglas.py::test_nombre_vacio_se_rechaza[] PASSED  [ 76%]
+tests/test_proveedores_reglas.py::test_nombre_vacio_se_rechaza[    ] PASSED [ 77%]
+tests/test_proveedores_reglas.py::test_nombre_vacio_se_rechaza[None] PASSED [ 79%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Norte@Sur] PASSED [ 80%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Proveedor #1] PASSED [ 82%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[A&B] PASSED [ 84%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Comercial-Norte] PASSED [ 85%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[<script>alert(1)</script>] PASSED [ 87%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[<b>Negrita</b>] PASSED [ 88%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Nombre'; DROP TABLE proveedores;--] PASSED [ 90%]
+tests/test_proveedores_reglas.py::test_longitud_limite PASSED            [ 92%]
+tests/test_security.py::test_hash_no_guarda_la_contrasena_en_texto_plano PASSED [ 93%]
+tests/test_security.py::test_verificar_contrasena_correcta PASSED        [ 95%]
+tests/test_security.py::test_verificar_contrasena_incorrecta PASSED      [ 96%]
+tests/test_security.py::test_misma_contrasena_genera_hashes_distintos PASSED [ 98%]
+tests/test_security.py::test_hash_malformado_no_valida PASSED            [100%]
+
+============================= 63 passed in 1.93s ==============================
