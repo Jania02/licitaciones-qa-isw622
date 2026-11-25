@@ -17,10 +17,10 @@ Trabajar el issue #3: los 14 requisitos del enunciado con prioridad y criterio d
 
 ## Revisión humana
 
-- [ ] Criterios contrastados con el enunciado
-- [ ] Prioridades y casos enlazados revisados
-- Decisión (aprobar / corregir / rechazar): pendiente
-- Revisor y fecha: pendiente
+- [x] Criterios contrastados con el enunciado
+- [x] Prioridades y casos enlazados revisados
+- Decisión (aprobar / corregir / rechazar): aprobar
+- Revisor y fecha: WGuillenDev, 2026-11-25
 
 ## Plantillas
 
