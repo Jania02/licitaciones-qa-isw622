@@ -14,6 +14,7 @@ from app.database import Base, engine
 from app.models import Usuario
 from app.proveedores import router as proveedores_router
 from app.templating import templates
+from app.moneda import router as moneda_router
 from app.evaluacion import router as evaluacion_router, inicializar_rangos
 from app.api_errors import registrar_errores
 from app.ofertas import router as ofertas_router
@@ -58,6 +59,7 @@ def manejar_error_interno(request: Request, exc: Exception):
 
 app.include_router(auth_router)
 app.include_router(proveedores_router)
+app.include_router(moneda_router)
 app.include_router(evaluacion_router)
 app.include_router(ofertas_router)
 app.include_router(licitaciones_router)
