@@ -96,3 +96,7 @@ un mensaje genérico sin detalles.
 ## Postman
 
 Importar `01_Software/postman/licitaciones.postman_collection.json`, configurar la contraseña sintética local en la variable `password` (no exportarla) y ejecutar en localhost. La colección valida respuestas positivas y negativas con sesión y elimina el proveedor sintético creado.
+
+## Rendimiento local
+
+Desde `01_Software`, instalar `pip install -r requirements-qa.txt` y ejecutar `python performance/run.py`. Crea una BD temporal, inicia Uvicorn en loopback y ejecuta 5 VU durante 30 segundos con Locust. Reportes reales en `04_Evidencias/EV-023-rendimiento/`.
