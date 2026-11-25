@@ -142,4 +142,6 @@ def web_eliminar(proveedor_id: int, db: Session = Depends(get_db),
         servicio.eliminar(db, proveedor_id)
     except servicio.ProveedorNoEncontrado:
         pass
+    except servicio.ProveedorDuplicado as exc:
+        return JSONResponse({"detail": exc.mensaje}, status_code=409)
     return RedirectResponse("/proveedores", status_code=303)
