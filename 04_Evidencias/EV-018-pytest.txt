@@ -4,7 +4,7 @@ Fecha: 2026-11-25 09:31 -0600
 Comando: pytest -v -rxX
 
 ============================= test session starts =============================
-platform win32 -- Python 3.14.7, pytest-8.3.4, pluggy-1.7.0 -- C:\Users\wilbe\AppData\Local\Temp\claude\749e2dc7e862c774\5294f583-f87b-43a2-a639-11248c4629d9\scratchpad\venv\Scripts\python.exe
+platform win32 -- python (entorno virtual)
 rootdir: C:\dev\licitaciones-qa-isw622\01_Software
 configfile: pytest.ini
 testpaths: tests
