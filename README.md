@@ -88,3 +88,7 @@ un mensaje genérico sin detalles.
 2. Commits pequeños y descriptivos.
 3. Abrir Pull Request hacia `main` con `Closes #<issue>`; otro integrante lo revisa y aprueba.
 4. Nunca hacer push directo a `main`.
+
+## API de licitaciones y ofertas
+
+`GET/POST /api/licitaciones`, `GET/PUT/DELETE /api/licitaciones/{id}`, `PATCH /api/licitaciones/{id}/estado`, `GET/POST /api/ofertas`, `GET/PUT/DELETE /api/ofertas/{id}`. Usar sesión autenticada. 201 para altas, 200 para consultas/ediciones, 204 para bajas, 400 para reglas, 401 sin sesión, 404 inexistente, 409 duplicado/conflicto, 422 estructura inválida. Cierres ISO 8601 con zona horaria.

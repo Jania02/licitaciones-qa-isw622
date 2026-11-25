@@ -14,6 +14,7 @@ from app.database import Base, engine
 from app.models import Usuario
 from app.proveedores import router as proveedores_router
 from app.templating import templates
+from app.api_errors import registrar_errores
 from app.ofertas import router as ofertas_router
 from app.licitaciones import router as licitaciones_router
 
@@ -26,6 +27,7 @@ if not SECRET_KEY:
     raise RuntimeError("Falta SECRET_KEY en el archivo .env (ver .env.example).")
 
 app = FastAPI(title="Sistema de Gestión de Licitaciones")
+registrar_errores(app)
 app.add_middleware(
     SessionMiddleware,
     secret_key=SECRET_KEY,
