@@ -92,3 +92,7 @@ un mensaje genérico sin detalles.
 ## API de licitaciones y ofertas
 
 `GET/POST /api/licitaciones`, `GET/PUT/DELETE /api/licitaciones/{id}`, `PATCH /api/licitaciones/{id}/estado`, `GET/POST /api/ofertas`, `GET/PUT/DELETE /api/ofertas/{id}`. Usar sesión autenticada. 201 para altas, 200 para consultas/ediciones, 204 para bajas, 400 para reglas, 401 sin sesión, 404 inexistente, 409 duplicado/conflicto, 422 estructura inválida. Cierres ISO 8601 con zona horaria.
+
+## Postman
+
+Importar `01_Software/postman/licitaciones.postman_collection.json`, configurar la contraseña sintética local en la variable `password` (no exportarla) y ejecutar en localhost. La colección valida respuestas positivas y negativas con sesión y elimina el proveedor sintético creado.
