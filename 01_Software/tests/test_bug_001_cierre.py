@@ -86,3 +86,27 @@ def test_regresion_monto_invalido_se_rechaza(monto):
 def test_regresion_api_antes_del_cierre_crea_la_oferta(client_autenticado, datos_oferta, monkeypatch):
     monkeypatch.setattr(ofertas, "ahora", lambda: CIERRE - UN_INSTANTE)
     assert client_autenticado.post("/api/ofertas", json=datos_oferta).status_code == 201
+
+
+# ---------- Casos usados en la regresión, con sus entradas exactas ----------
+
+@pytest.mark.parametrize("estado", ["Borrador", "Cerrada"])
+def test_cp011_api_oferta_en_estado_no_publicado_se_rechaza(client_autenticado, datos_oferta, estado):
+    with SessionLocal() as db:
+        db.get(Licitacion, datos_oferta["licitacion_id"]).estado = estado
+        db.commit()
+    assert client_autenticado.post("/api/ofertas", json=datos_oferta).status_code == 400
+    consulta = f"/api/ofertas?licitacion_id={datos_oferta['licitacion_id']}"
+    assert client_autenticado.get(consulta).json() == []
+
+
+@pytest.mark.parametrize("monto,valido", [
+    ("0", False), ("-1", False), ("10000000.00", True), ("10000000.01", False),
+])
+def test_cp012_montos_en_los_limites(monto, valido):
+    l1 = SimpleNamespace(estado="Publicada", cierre=CIERRE, presupuesto_centimos=1_000_000_000)
+    if valido:
+        assert ofertas.validar_oferta(l1, Decimal(monto), CIERRE - UN_INSTANTE) == 1_000_000_000
+    else:
+        with pytest.raises(HTTPException):
+            ofertas.validar_oferta(l1, Decimal(monto), CIERRE - UN_INSTANTE)
