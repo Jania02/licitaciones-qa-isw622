@@ -17,8 +17,8 @@ Trabajar el issue #18: pruebas automatizadas de Proveedores y seguridad con pyte
 
 ## Revisión humana
 
-- [ ] Oráculos contrastados con REQ-001, REQ-011 y REQ-012
-- [ ] Datos, límites y aserciones revisados
-- [ ] Pruebas ejecutadas por el revisor
-- Decisión (aprobar / corregir / rechazar): pendiente
-- Revisor y fecha: pendiente
+- [x] Oráculos contrastados con REQ-001, REQ-011 y REQ-012
+- [x] Datos, límites y aserciones revisados
+- [x] Pruebas ejecutadas por el revisor
+- Decisión (aprobar / corregir / rechazar): aprobar
+- Revisor y fecha: WGuillenDev, 2026-11-25
