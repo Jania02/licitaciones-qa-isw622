@@ -43,7 +43,7 @@ pytest -v
 ## Base de datos
 
 SQLite en `01_Software/licitaciones.db` (ruta configurable en `.env`).
-Reinicio y carga de datos sintéticos: _pendiente (issue de seed)_.
+Reinicio y carga de datos sintéticos (detener el servidor antes): desde `01_Software`, ejecutar `python seed.py --reset`. **Borra los datos de la BD SQLite configurada**. Usar únicamente con datos de laboratorio. Incluye P1/P2, L1, ofertas, tasa 500, rangos y tres escenarios de frontera. El usuario de prueba se crea con las variables de `.env`.
 
 ## Usuarios de prueba
 
