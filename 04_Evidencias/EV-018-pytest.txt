@@ -1,0 +1,105 @@
+EV-018 | Pruebas de Proveedores y seguridad
+Commit probado: a5ed757a05d440bffdc12dca83f412e4a3c60ef4
+Fecha: 2026-11-25 09:31 -0600
+Comando: pytest -v -rxX
+
+============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-8.3.4, pluggy-1.7.0 -- C:\Users\wilbe\AppData\Local\Temp\claude\749e2dc7e862c774\5294f583-f87b-43a2-a639-11248c4629d9\scratchpad\venv\Scripts\python.exe
+rootdir: C:\dev\licitaciones-qa-isw622\01_Software
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 85 items
+
+tests/test_auth.py::test_inicio_sin_sesion_redirige_a_login PASSED       [  1%]
+tests/test_auth.py::test_login_web_correcto_entra_al_inicio PASSED       [  2%]
+tests/test_auth.py::test_login_web_contrasena_incorrecta_muestra_error PASSED [  3%]
+tests/test_auth.py::test_logout_web_cierra_la_sesion PASSED              [  4%]
+tests/test_auth.py::test_login_api_correcto PASSED                       [  5%]
+tests/test_auth.py::test_login_api_usuario_inexistente PASSED            [  7%]
+tests/test_auth.py::test_api_protegida_sin_sesion_responde_401 PASSED    [  8%]
+tests/test_auth.py::test_api_me_con_sesion PASSED                        [  9%]
+tests/test_auth.py::test_logout_api_invalida_la_sesion PASSED            [ 10%]
+tests/test_health.py::test_health_responde_ok PASSED                     [ 11%]
+tests/test_proveedores_api.py::test_crear_proveedor_valido PASSED        [ 12%]
+tests/test_proveedores_api.py::test_listar_proveedores PASSED            [ 14%]
+tests/test_proveedores_api.py::test_duplicado_por_mayusculas_o_espacios_se_rechaza[tecnolog\xeda norte s.a.] PASSED [ 15%]
+tests/test_proveedores_api.py::test_duplicado_por_mayusculas_o_espacios_se_rechaza[TECNOLOG\xcdA NORTE S.A.] PASSED [ 16%]
+tests/test_proveedores_api.py::test_duplicado_por_mayusculas_o_espacios_se_rechaza[  Tecnolog\xeda    Norte   S.A.  ] PASSED [ 17%]
+tests/test_proveedores_api.py::test_bd_rechaza_duplicado_aunque_se_salte_la_validacion PASSED [ 18%]
+tests/test_proveedores_api.py::test_editar_proveedor PASSED              [ 20%]
+tests/test_proveedores_api.py::test_editar_cambiando_solo_mayusculas_de_su_propio_nombre PASSED [ 21%]
+tests/test_proveedores_api.py::test_editar_a_nombre_de_otro_proveedor_se_rechaza PASSED [ 22%]
+tests/test_proveedores_api.py::test_editar_inexistente_responde_404 PASSED [ 23%]
+tests/test_proveedores_api.py::test_eliminar_proveedor PASSED            [ 24%]
+tests/test_proveedores_api.py::test_api_rechaza_nombres_invalidos[Norte@Sur] PASSED [ 25%]
+tests/test_proveedores_api.py::test_api_rechaza_nombres_invalidos[<script>alert(1)</script>] PASSED [ 27%]
+tests/test_proveedores_api.py::test_api_rechaza_nombres_invalidos[   ] PASSED [ 28%]
+tests/test_proveedores_api.py::test_api_sin_sesion_responde_401 PASSED   [ 29%]
+tests/test_proveedores_api.py::test_web_muestra_script_rechazado_como_texto_escapado PASSED [ 30%]
+tests/test_proveedores_api.py::test_error_interno_no_expone_detalles PASSED [ 31%]
+tests/test_proveedores_api.py::test_web_crear_y_listar PASSED            [ 32%]
+tests/test_proveedores_api.py::test_web_duplicado_muestra_mensaje PASSED [ 34%]
+tests/test_proveedores_api.py::test_web_editar PASSED                    [ 35%]
+tests/test_proveedores_api.py::test_web_sin_sesion_redirige_a_login PASSED [ 36%]
+tests/test_proveedores_reglas.py::test_normalizar_recorta_y_compacta_espacios PASSED [ 37%]
+tests/test_proveedores_reglas.py::test_clave_ignora_mayusculas_y_espacios PASSED [ 38%]
+tests/test_proveedores_reglas.py::test_nombres_validos[Tecnolog\xeda Norte S.A.] PASSED [ 40%]
+tests/test_proveedores_reglas.py::test_nombres_validos[Servicios del Valle] PASSED [ 41%]
+tests/test_proveedores_reglas.py::test_nombres_validos[Ferreter\xeda P\xe9rez, Hijos (Sede 2)] PASSED [ 42%]
+tests/test_proveedores_reglas.py::test_nombres_validos[\xd1and\xfa 123] PASSED [ 43%]
+tests/test_proveedores_reglas.py::test_nombre_vacio_se_rechaza[] PASSED  [ 44%]
+tests/test_proveedores_reglas.py::test_nombre_vacio_se_rechaza[    ] PASSED [ 45%]
+tests/test_proveedores_reglas.py::test_nombre_vacio_se_rechaza[None] PASSED [ 47%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Norte@Sur] PASSED [ 48%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Proveedor #1] PASSED [ 49%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[A&B] PASSED [ 50%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Comercial-Norte] PASSED [ 51%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[<script>alert(1)</script>] PASSED [ 52%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[<b>Negrita</b>] PASSED [ 54%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Nombre'; DROP TABLE proveedores;--] PASSED [ 55%]
+tests/test_proveedores_reglas.py::test_longitud_limite PASSED            [ 56%]
+tests/test_proveedores_seguridad_qa.py::test_variantes_de_p1_comparten_clave[tecnolog\xeda norte s.a.] PASSED [ 57%]
+tests/test_proveedores_seguridad_qa.py::test_variantes_de_p1_comparten_clave[TECNOLOG\xcdA NORTE S.A.] PASSED [ 58%]
+tests/test_proveedores_seguridad_qa.py::test_variantes_de_p1_comparten_clave[ Tecnolog\xeda  Norte  S.A. ] PASSED [ 60%]
+tests/test_proveedores_seguridad_qa.py::test_nombres_distintos_no_comparten_clave PASSED [ 61%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[_] PASSED [ 62%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[/] PASSED [ 63%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[\\] PASSED [ 64%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[!] PASSED [ 65%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[?] PASSED [ 67%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[:] PASSED [ 68%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[;] PASSED [ 69%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza["] PASSED [ 70%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza['] PASSED [ 71%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[*] PASSED [ 72%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[+] PASSED [ 74%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[=] PASSED [ 75%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[%] PASSED [ 76%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[$] PASSED [ 77%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[[] PASSED [ 78%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[]] PASSED [ 80%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[{] PASSED [ 81%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[}] PASSED [ 82%]
+tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[|] PASSED [ 83%]
+tests/test_proveedores_seguridad_qa.py::test_caracter_de_control_se_rechaza[Norte\tSur] XFAIL [ 84%]
+tests/test_proveedores_seguridad_qa.py::test_caracter_de_control_se_rechaza[Norte\nSur] XFAIL [ 85%]
+tests/test_proveedores_seguridad_qa.py::test_duplicado_en_interfaz_de_un_alta_por_api PASSED [ 87%]
+tests/test_proveedores_seguridad_qa.py::test_api_e_interfaz_rechazan_lo_mismo[Norte@Sur] PASSED [ 88%]
+tests/test_proveedores_seguridad_qa.py::test_api_e_interfaz_rechazan_lo_mismo[<img src=x onerror=alert(1)>] PASSED [ 89%]
+tests/test_proveedores_seguridad_qa.py::test_edicion_invalida_conserva_el_nombre[Norte@Sur] PASSED [ 90%]
+tests/test_proveedores_seguridad_qa.py::test_edicion_invalida_conserva_el_nombre[<script>alert(1)</script>] PASSED [ 91%]
+tests/test_proveedores_seguridad_qa.py::test_api_rechaza_caracter_de_control[Norte\tSur] XFAIL [ 92%]
+tests/test_proveedores_seguridad_qa.py::test_api_rechaza_caracter_de_control[Norte\nSur] XFAIL [ 94%]
+tests/test_security.py::test_hash_no_guarda_la_contrasena_en_texto_plano PASSED [ 95%]
+tests/test_security.py::test_verificar_contrasena_correcta PASSED        [ 96%]
+tests/test_security.py::test_verificar_contrasena_incorrecta PASSED      [ 97%]
+tests/test_security.py::test_misma_contrasena_genera_hashes_distintos PASSED [ 98%]
+tests/test_security.py::test_hash_malformado_no_valida PASSED            [100%]
+
+=========================== short test summary info ===========================
+XFAIL tests/test_proveedores_seguridad_qa.py::test_caracter_de_control_se_rechaza[Norte\tSur] - Pendiente en PR #32: tabulaciones y saltos de línea se compactan en vez de rechazarse.
+XFAIL tests/test_proveedores_seguridad_qa.py::test_caracter_de_control_se_rechaza[Norte\nSur] - Pendiente en PR #32: tabulaciones y saltos de línea se compactan en vez de rechazarse.
+XFAIL tests/test_proveedores_seguridad_qa.py::test_api_rechaza_caracter_de_control[Norte\tSur] - Pendiente en PR #32: tabulaciones y saltos de línea se compactan en vez de rechazarse.
+XFAIL tests/test_proveedores_seguridad_qa.py::test_api_rechaza_caracter_de_control[Norte\nSur] - Pendiente en PR #32: tabulaciones y saltos de línea se compactan en vez de rechazarse.
+======================== 81 passed, 4 xfailed in 2.66s ========================
