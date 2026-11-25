@@ -21,7 +21,7 @@ Criterios resumidos del enunciado, sección 3. La prioridad es una propuesta.
 
 ## Casos enlazados
 
-Resumen de cada caso; las fichas completas corresponden a los issues #5 a #7.
+Resumen de cada caso; las fichas están en la hoja `05_Casos`.
 
 | Caso | Tipo | Verifica |
 |---|---|---|

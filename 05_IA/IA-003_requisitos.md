@@ -24,4 +24,4 @@ Trabajar el issue #3: los 14 requisitos del enunciado con prioridad y criterio d
 
 ## Plantillas
 
-Con la misma herramienta se llenaron 03_Requisitos y Word A3 (issue #3), y 07_Defectos, 08_Riesgos y Word B5 (issue #25).
+Con la misma herramienta se llenaron 03_Requisitos, 05_Casos y Word A3 (issue #3), y 06_Ejecuciones, 07_Defectos, 08_Riesgos, 11_Evidencias y Word B5 (issue #25).
