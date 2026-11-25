@@ -32,7 +32,7 @@ class CambioMonto(BaseModel):
     monto_crc: Decimal
 
 def validar_oferta(licitacion, monto, instante):
-    if licitacion.estado != "Publicada" or instante > licitacion.cierre:
+    if licitacion.estado != "Publicada" or instante >= licitacion.cierre:
         raise HTTPException(400, "La licitación no admite ofertas en este momento.")
     valor = centimos(monto)
     if valor > licitacion.presupuesto_centimos:
