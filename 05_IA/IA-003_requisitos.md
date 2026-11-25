@@ -21,3 +21,7 @@ Trabajar el issue #3: los 14 requisitos del enunciado con prioridad y criterio d
 - [ ] Prioridades y casos enlazados revisados
 - Decisión (aprobar / corregir / rechazar): pendiente
 - Revisor y fecha: pendiente
+
+## Plantillas
+
+Con la misma herramienta se llenaron 03_Requisitos y Word A3 (issue #3), y 07_Defectos, 08_Riesgos y Word B5 (issue #25).
