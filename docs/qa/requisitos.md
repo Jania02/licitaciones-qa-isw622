@@ -18,3 +18,32 @@ Criterios resumidos del enunciado, sección 3. La prioridad es una propuesta.
 | REQ-012 | Seguridad | Nombre solo con letras, números, espacios, punto, coma y paréntesis; sin ejecución HTML/script ni errores internos visibles | Alta | CP-003, CP-004, CP-005 |
 | REQ-013 | Usabilidad | Con 2 personas ajenas, al menos 3 de 4 tareas sin ayuda | Media | CP-006 |
 | REQ-014 | Rendimiento | 5 usuarios, 30 s, GET de listado local: p95 ≤ 1 500 ms y errores ≤ 5 %; registrar CPU/RAM | Media | CP-020 |
+
+## Casos enlazados
+
+Resumen de cada caso; las fichas completas corresponden a los issues #5 a #7.
+
+| Caso | Tipo | Verifica |
+|---|---|---|
+| CP-001 | Unitaria | Variantes de mayúsculas y espacios de P1 tienen la misma clave |
+| CP-002 | Integración API | Registrar P1 repetido responde 409 |
+| CP-003 | Unitaria | "Norte@Sur" se rechaza |
+| CP-004 | Seguridad | Una cadena script se rechaza y no se ejecuta |
+| CP-005 | Seguridad | Un error interno no muestra traza ni credenciales |
+| CP-006 | Usabilidad | 2 personas completan al menos 3 de 4 tareas sin ayuda |
+| CP-007 | Funcional | Los datos persisten tras reiniciar |
+| CP-008 | Funcional | Alta y publicación de L1; código repetido rechazado |
+| CP-009 | Unitaria | Solo se aceptan las tres transiciones permitidas |
+| CP-010 | Unitaria | Oferta exactamente al cierre rechazada |
+| CP-011 | Funcional | Ofertas en Borrador y Cerrada rechazadas |
+| CP-012 | Unitaria | Montos 0, negativo y presupuesto +0,01 rechazados; igual aceptado |
+| CP-013 | Integración API | Oferta duplicada rechazada por API y base de datos |
+| CP-014 | Integración API | Alta y consulta responden 201 y 200 |
+| CP-015 | Integración API | Monto 0 e id inexistente dan errores controlados |
+| CP-016 | Unitaria | Menor oferta, empate y ausencia de ofertas |
+| CP-017 | Unitaria | Ahorro y clasificación en 10 %, 5 % y 0 % |
+| CP-018 | Unitaria | Aprobador en las fronteras de cada rango |
+| CP-019 | Funcional | CRC 9 000 000 con tasa 500 muestra USD 18 000,00 sin cambiar la BD |
+| CP-020 | Rendimiento | 5 usuarios y 30 s: p95 ≤ 1 500 ms y errores ≤ 5 % |
+| CP-021 | Borde | Título vacío, presupuesto 0 y cierre pasado rechazados |
+| CP-022 | Borde | Tasa 0 o negativa rechazada |
