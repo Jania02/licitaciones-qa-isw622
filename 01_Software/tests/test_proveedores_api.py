@@ -109,6 +109,13 @@ def test_api_rechaza_nombres_invalidos(client_autenticado, nombre):
     assert client_autenticado.get("/api/proveedores").json() == []
 
 
+@pytest.mark.parametrize("nombre", ["Norte\tSur", "Norte\nSur", "Tecnología Norte S.A.\n"])
+def test_api_rechaza_tabulaciones_y_saltos_de_linea(client_autenticado, nombre):
+    respuesta = crear(client_autenticado, nombre)
+    assert respuesta.status_code == 400
+    assert client_autenticado.get("/api/proveedores").json() == []
+
+
 def test_api_sin_sesion_responde_401(client):
     assert client.get("/api/proveedores").status_code == 401
     assert crear(client, P1).status_code == 401
