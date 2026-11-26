@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f4f6f8; color: #1f2933; }
+.barra { display: flex; align-items: center; gap: 1.5rem; padding: .75rem 1.5rem; background: #12355b; color: #fff; }
+.barra a { color: #fff; text-decoration: none; }
+.marca { font-weight: 700; }
+.salir { margin-left: auto; display: flex; align-items: center; gap: .75rem; }
+.contenido { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+.tarjeta { background: #fff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+.login { max-width: 360px; margin: 3rem auto; }
+form label { display: block; margin-top: .75rem; font-weight: 600; }
+form input { width: 100%; padding: .5rem; margin-top: .25rem; border: 1px solid #c3ccd5; border-radius: 4px; }
+button { margin-top: 1rem; padding: .5rem 1rem; border: 0; border-radius: 4px; background: #1d6fb8; color: #fff; cursor: pointer; }
+.barra button { margin-top: 0; background: #2d5f91; }
+.error { color: #b42318; background: #fdecea; padding: .5rem .75rem; border-radius: 4px; }
