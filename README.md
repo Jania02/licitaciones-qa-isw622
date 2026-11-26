@@ -25,7 +25,8 @@ cd 01_Software
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-copy .env.example .env
+copy .env.example .env      # luego completar SECRET_KEY y ADMIN_PASSWORD en .env
+python seed.py              # crea las tablas y el usuario de prueba
 uvicorn app.main:app --reload
 ```
 
@@ -46,8 +47,14 @@ Reinicio y carga de datos sintéticos: _pendiente (issue de seed)_.
 
 ## Usuarios de prueba
 
-Al arrancar, la app crea el usuario definido en `.env` (`ADMIN_USER` / `ADMIN_PASSWORD`) si no existe.
-Con el `.env.example` por defecto: usuario `admin`, contraseña `admin123` (solo datos sintéticos).
+No hay credenciales en el código ni en el repositorio. En `.env` (que no se sube) se definen:
+
+- `SECRET_KEY`: obligatoria; la app no arranca sin ella. Generarla con
+  `python -c "import secrets; print(secrets.token_hex(32))"`.
+- `ADMIN_USER` y `ADMIN_PASSWORD`: usuario de prueba (datos sintéticos).
+
+El usuario de prueba se crea con `python seed.py` (desde `01_Software`). Las pruebas automáticas
+generan su propia clave y contraseña al azar en cada ejecución.
 
 Las contraseñas se guardan con hash PBKDF2-SHA256. Todas las pantallas y la API (salvo `/login`,
 `/api/auth/login` y `/api/health`) requieren sesión iniciada:
