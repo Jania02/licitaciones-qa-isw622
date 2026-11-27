@@ -13,7 +13,6 @@ from app.proveedores_service import ErrorValidacion, clave_unicidad, validar_nom
 P1 = "Tecnología Norte S.A."
 P2 = "Servicios del Valle"
 CONTROL = ["Norte\tSur", "Norte\nSur"]
-MOTIVO_CONTROL = "Pendiente en PR #32: tabulaciones y saltos de línea se compactan en vez de rechazarse."
 
 
 @pytest.fixture(autouse=True)
@@ -53,7 +52,6 @@ def test_simbolo_no_admitido_se_rechaza(simbolo):
         validar_nombre(f"Norte{simbolo}Sur")
 
 
-@pytest.mark.xfail(strict=True, reason=MOTIVO_CONTROL)
 @pytest.mark.parametrize("nombre", CONTROL)
 def test_caracter_de_control_se_rechaza(nombre):
     with pytest.raises(ErrorValidacion):
@@ -89,7 +87,6 @@ def test_edicion_invalida_conserva_el_nombre(client_autenticado, nombre):
     assert nombres(c) == [P1]
 
 
-@pytest.mark.xfail(strict=True, reason=MOTIVO_CONTROL)
 @pytest.mark.parametrize("nombre", CONTROL)
 def test_api_rechaza_caracter_de_control(client_autenticado, nombre):
     respuesta = client_autenticado.post("/api/proveedores", json={"nombre": nombre})
