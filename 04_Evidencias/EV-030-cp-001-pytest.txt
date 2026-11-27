@@ -1,0 +1,16 @@
+EVIDENCIA EV-030 — CP-001 (Unitaria)
+Fecha: 2026-11-26 21:19:21
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, pytest 8.3.4, SQLite temporal
+Comando: cd 01_Software && -m pytest -q -p no:warnings -rA tests/test_proveedores_reglas.py::test_clave_ignora_mayusculas_y_espacios tests/test_proveedores_seguridad_qa.py::test_variantes_de_p1_comparten_clave tests/test_proveedores_seguridad_qa.py::test_nombres_distintos_no_comparten_clave
+Código de salida: 0
+
+.....                                                                    [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_proveedores_reglas.py::test_clave_ignora_mayusculas_y_espacios
+PASSED tests/test_proveedores_seguridad_qa.py::test_variantes_de_p1_comparten_clave[tecnolog\xeda norte s.a.]
+PASSED tests/test_proveedores_seguridad_qa.py::test_variantes_de_p1_comparten_clave[TECNOLOG\xcdA NORTE S.A.]
+PASSED tests/test_proveedores_seguridad_qa.py::test_variantes_de_p1_comparten_clave[ Tecnolog\xeda  Norte  S.A. ]
+PASSED tests/test_proveedores_seguridad_qa.py::test_nombres_distintos_no_comparten_clave
+5 passed in 0.01s

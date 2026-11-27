@@ -1,0 +1,15 @@
+EVIDENCIA EV-051 — CP-022 (Funcional por API sobre servidor local)
+Fecha: 2026-11-26 21:20:30
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, SQLite temporal, servidor Uvicorn local http://127.0.0.1:8011
+Base de datos: temporal, solo datos sintéticos (P1, P2, L1)
+Ejecutor: Claude Code (IA-050); revisión humana pendiente
+
+POST /api/tasas {"crc_por_usd": "0"} -> 400 {"detail":"La tasa debe ser positiva y estar dentro del rango admitido."}
+VERIFICACIÓN: tasa 0 rechazada (400) -> CUMPLE
+POST /api/tasas {"crc_por_usd": "-5"} -> 400 {"detail":"La tasa debe ser positiva y estar dentro del rango admitido."}
+VERIFICACIÓN: tasa -5 rechazada (400) -> CUMPLE
+GET /api/tasas  -> 200 [{"id":1,"crc_por_usd":"500","fecha":"2026-11-27T03:20:29.362759+00:00","fuente":"manual"}]
+VERIFICACIÓN: la lista de tasas conserva solo la tasa válida 500 -> CUMPLE
+
+RESULTADO: PASA (3/3 verificaciones)
