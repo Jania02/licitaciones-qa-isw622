@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block titulo %}Licitaciones{% endblock %}
+{% block contenido %}
+<section class="tarjeta">
+<h1>Licitaciones</h1>
+<form id="form">
+<input type="hidden" name="id">
+<label>Código <input name="codigo" required maxlength="60"></label>
+<label>Título <input name="titulo" required maxlength="200"></label>
+<label>Presupuesto CRC <input name="presupuesto_crc" type="number" min="0.01" step="0.01" required></label>
+<label>Cierre (hora local) <input name="cierre" type="datetime-local" required></label>
+<button>Guardar</button><button type="button" id="cancelar">Cancelar edición</button>
+</form>
+<p id="mensaje" role="status"></p><ul id="lista"></ul>
+</section>
+<script>
+const form=document.querySelector('#form'), lista=document.querySelector('#lista'), msg=document.querySelector('#mensaje');
+async function api(path='',method='GET',body){
+ const r=await fetch('/api/licitaciones'+path,{method,headers:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});
+ if(!r.ok){const e=await r.json();throw Error(typeof e.detail==='string'?e.detail:'Datos inválidos');}
+ return r.status===204?null:r.json();
+}
+async function accion(f){try{await f();msg.textContent='Operación completada';await cargar();}catch(e){msg.textContent=e.message;}}
+function boton(li,n,f){const b=document.createElement('button');b.textContent=n;b.onclick=f;li.append(b);}
+async function cargar(){
+ lista.replaceChildren();
+ for(const l of await api()){
+  const li=document.createElement('li');li.textContent=l.codigo+' — '+l.titulo+' | CRC '+l.presupuesto_crc+' | '+l.estado+' | '+new Date(l.cierre).toLocaleString()+' ';
+  if(l.estado==='Borrador'){
+   boton(li,'Editar',()=>{for(const k of ['id','codigo','titulo','presupuesto_crc'])form.elements[k].value=l[k];const d=new Date(l.cierre);form.elements.cierre.value=new Date(d-d.getTimezoneOffset()*60000).toISOString().slice(0,16);});
+   boton(li,'Publicar',()=>accion(()=>api('/'+l.id+'/estado','PATCH',{estado:'Publicada'})));
+   boton(li,'Eliminar',()=>accion(()=>api('/'+l.id,'DELETE')));
+  }
+  if(l.estado!=='Cerrada')boton(li,'Cerrar',()=>accion(()=>api('/'+l.id+'/estado','PATCH',{estado:'Cerrada'})));
+  lista.append(li);
+ }
+}
+form.onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(form));const id=d.id;delete d.id;d.cierre=new Date(d.cierre).toISOString();accion(async()=>{await api(id?'/'+id:'',id?'PUT':'POST',d);form.reset();form.elements.id.value='';});};
+document.querySelector('#cancelar').onclick=()=>{form.reset();form.elements.id.value='';};
+cargar().catch(e=>msg.textContent=e.message);
+</script>
+{% endblock %}
