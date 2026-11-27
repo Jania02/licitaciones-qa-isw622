@@ -13,3 +13,6 @@ htmlcov/
 ~$*
 .DS_Store
 Thumbs.db
+
+# Caché de herramientas de IA
+graft/

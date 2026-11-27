@@ -27,8 +27,9 @@ Revisadas leyendo el código; no se ejecutaron en esta intervención.
 
 ## Revisión humana
 
-- [ ] Riesgos contrastados con el enunciado y el plan del equipo
-- [ ] Probabilidad, impacto, mitigación, contingencia y responsables revisados
-- [ ] Coincidencia entre 08_Riesgos y Word A9 verificada
-- Decisión (aprobar / corregir / rechazar): pendiente
-- Revisor y fecha: Jania02, pendiente
+- [x] Riesgos contrastados con el enunciado y el plan del equipo
+- [x] Probabilidad, impacto, mitigación, contingencia y responsables revisados
+- [x] Coincidencia entre 08_Riesgos y Word A9 verificada
+- Decisión (aprobar / corregir / rechazar): corregir
+- Cambios humanos: RSK-002 pasa a probabilidad Alta y queda "Ocurrido" (main solo tenía el PR #31 hasta la noche del 26/11); RSK-003 cambia el responsable "Integrante 3 (tipo de cambio)" por DataBy (Byron Bolaños); "¿Ocurrió?" = No en RSK-003 y RSK-004. Se verificó en `moneda.py` la mitigación de RSK-003 (timeout de 5 s, HTTP 503 y tasa manual).
+- Revisor y fecha: Jania02, 2026-11-26
