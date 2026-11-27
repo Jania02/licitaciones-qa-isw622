@@ -52,8 +52,19 @@ def caracter_permitido(c: str) -> bool:
     return c.isalpha() or c in "0123456789" or c in CARACTERES_PERMITIDOS_EXTRA
 
 
+def tiene_espacio_no_permitido(nombre: str) -> bool:
+    """Tabulaciones, saltos de línea y otros espacios o caracteres de control.
+
+    Se revisa ANTES de normalizar, porque normalizar los convertiría en espacios
+    y el nombre se aceptaría.
+    """
+    return any((c.isspace() and c != " ") or not c.isprintable() for c in (nombre or ""))
+
+
 def validar_nombre(nombre: str) -> str:
     """Devuelve el nombre normalizado o lanza ErrorValidacion."""
+    if tiene_espacio_no_permitido(nombre):
+        raise ErrorValidacion(MSG_CARACTERES)
     limpio = normalizar_nombre(nombre)
     if not limpio:
         raise ErrorValidacion(MSG_VACIO)

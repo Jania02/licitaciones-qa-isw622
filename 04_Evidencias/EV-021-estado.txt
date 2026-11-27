@@ -1,0 +1,1 @@
+Actualización de validación: las cuatro pruebas HTTP de seguridad controlada PASARON dentro de la suite completa (80 aprobadas). Ver EV-024-suite-completa.txt. El bloqueo inicial de TestClient se resolvió al cambiar las restricciones del entorno.

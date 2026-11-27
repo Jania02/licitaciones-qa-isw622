@@ -8,29 +8,38 @@ from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 
 from app import models  # noqa: F401  (registra las tablas)
-from app.auth import LoginRequerido, crear_admin_inicial, usuario_actual
+from app.auth import LoginRequerido, usuario_actual
 from app.auth import router as auth_router
 from app.database import Base, engine
 from app.models import Usuario
 from app.proveedores import router as proveedores_router
 from app.templating import templates
+from app.moneda import router as moneda_router
+from app.evaluacion import router as evaluacion_router, inicializar_rangos
+from app.api_errors import registrar_errores
 from app.ofertas import router as ofertas_router
 from app.licitaciones import router as licitaciones_router
 
 BASE_DIR = Path(__file__).parent
 logger = logging.getLogger("licitaciones")
 
+# La clave que firma las cookies de sesión es obligatoria y solo vive en .env.
+SECRET_KEY = os.getenv("SECRET_KEY", "").strip()
+if not SECRET_KEY:
+    raise RuntimeError("Falta SECRET_KEY en el archivo .env (ver .env.example).")
+
 app = FastAPI(title="Sistema de Gestión de Licitaciones")
+registrar_errores(app)
 app.add_middleware(
     SessionMiddleware,
-    secret_key=os.getenv("SECRET_KEY", "solo-desarrollo-local"),
+    secret_key=SECRET_KEY,
     same_site="lax",
 )
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
-Base.metadata.create_all(bind=engine)
-crear_admin_inicial()
 
+Base.metadata.create_all(bind=engine)
+inicializar_rangos()
 
 @app.exception_handler(LoginRequerido)
 def manejar_login_requerido(request: Request, exc: LoginRequerido):
@@ -50,6 +59,8 @@ def manejar_error_interno(request: Request, exc: Exception):
 
 app.include_router(auth_router)
 app.include_router(proveedores_router)
+app.include_router(moneda_router)
+app.include_router(evaluacion_router)
 app.include_router(ofertas_router)
 app.include_router(licitaciones_router)
 

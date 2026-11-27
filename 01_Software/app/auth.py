@@ -42,17 +42,21 @@ def usuario_actual(request: Request, db: Session = Depends(get_db)) -> Usuario:
     return usuario
 
 
-def crear_admin_inicial() -> None:
-    """Crea el usuario de prueba definido en .env si todavía no existe."""
+def crear_admin_inicial() -> bool:
+    """Crea el usuario de prueba definido en .env si todavía no existe.
+
+    Lo usa seed.py. Devuelve False si faltan ADMIN_USER o ADMIN_PASSWORD.
+    """
     username = os.getenv("ADMIN_USER", "").strip()
     password = os.getenv("ADMIN_PASSWORD", "")
     if not username or not password:
-        return
+        return False
     with SessionLocal() as db:
         existe = db.scalar(select(Usuario).where(Usuario.username == username))
         if existe is None:
             db.add(Usuario(username=username, password_hash=hash_password(password)))
             db.commit()
+    return True
 
 
 # ---------- Interfaz web ----------

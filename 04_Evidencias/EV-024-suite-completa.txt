@@ -1,0 +1,114 @@
+Validación del conjunto final tras habilitar red y completar dependencias.
+Comando: python -m pytest -v
+
+============================= test session starts ==============================
+platform linux -- Python 3.14.4, pytest-8.3.4, pluggy-1.7.0 -- /home/byron/Universidad/QA/licitaciones_10_issues/qa_entrega/licitaciones-qa-preparado-venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/byron/Universidad/QA/licitaciones_10_issues/qa_entrega/licitaciones-qa-preparado/01_Software
+configfile: pytest.ini
+testpaths: tests
+plugins: locust-2.47.0, anyio-4.16.0
+collecting ... collected 80 items
+
+tests/test_auth.py::test_inicio_sin_sesion_redirige_a_login PASSED       [  1%]
+tests/test_auth.py::test_login_web_correcto_entra_al_inicio PASSED       [  2%]
+tests/test_auth.py::test_login_web_contrasena_incorrecta_muestra_error PASSED [  3%]
+tests/test_auth.py::test_logout_web_cierra_la_sesion PASSED              [  5%]
+tests/test_auth.py::test_login_api_correcto PASSED                       [  6%]
+tests/test_auth.py::test_login_api_usuario_inexistente PASSED            [  7%]
+tests/test_auth.py::test_api_protegida_sin_sesion_responde_401 PASSED    [  8%]
+tests/test_auth.py::test_api_me_con_sesion PASSED                        [ 10%]
+tests/test_auth.py::test_logout_api_invalida_la_sesion PASSED            [ 11%]
+tests/test_evaluacion_moneda.py::test_ahorro[90000000-10-conveniente] PASSED [ 12%]
+tests/test_evaluacion_moneda.py::test_ahorro[95000000-5-aceptable] PASSED [ 13%]
+tests/test_evaluacion_moneda.py::test_ahorro[100000000-0-v\xe1lida sin ahorro] PASSED [ 15%]
+tests/test_evaluacion_moneda.py::test_mejor_y_empate PASSED              [ 16%]
+tests/test_evaluacion_moneda.py::test_aprobadores[1-\xc1rea] PASSED      [ 17%]
+tests/test_evaluacion_moneda.py::test_aprobadores[99999999-\xc1rea] PASSED [ 18%]
+tests/test_evaluacion_moneda.py::test_aprobadores[100000000-Gerencia] PASSED [ 20%]
+tests/test_evaluacion_moneda.py::test_aprobadores[999999999-Gerencia] PASSED [ 21%]
+tests/test_evaluacion_moneda.py::test_aprobadores[1000000000-Junta] PASSED [ 22%]
+tests/test_evaluacion_moneda.py::test_conversion PASSED                  [ 23%]
+tests/test_evaluacion_moneda.py::test_moneda_no_cambia_importes PASSED   [ 25%]
+tests/test_health.py::test_health_responde_ok PASSED                     [ 26%]
+tests/test_licitaciones_ofertas.py::test_transiciones PASSED             [ 27%]
+tests/test_licitaciones_ofertas.py::test_montos[0-False] PASSED          [ 28%]
+tests/test_licitaciones_ofertas.py::test_montos[-1-False] PASSED         [ 30%]
+tests/test_licitaciones_ofertas.py::test_montos[100-True] PASSED         [ 31%]
+tests/test_licitaciones_ofertas.py::test_montos[100.01-False] PASSED     [ 32%]
+tests/test_licitaciones_ofertas.py::test_vencimiento[Publicada--1-True] PASSED [ 33%]
+tests/test_licitaciones_ofertas.py::test_vencimiento[Publicada-0-False] PASSED [ 35%]
+tests/test_licitaciones_ofertas.py::test_vencimiento[Publicada-1-False] PASSED [ 36%]
+tests/test_licitaciones_ofertas.py::test_vencimiento[Borrador--1-False] PASSED [ 37%]
+tests/test_licitaciones_ofertas.py::test_vencimiento[Cerrada--1-False] PASSED [ 38%]
+tests/test_licitaciones_ofertas.py::test_api_licitacion_duplicada PASSED [ 40%]
+tests/test_licitaciones_ofertas.py::test_api_ofertas PASSED              [ 41%]
+tests/test_proveedores_api.py::test_crear_proveedor_valido PASSED        [ 42%]
+tests/test_proveedores_api.py::test_listar_proveedores PASSED            [ 43%]
+tests/test_proveedores_api.py::test_duplicado_por_mayusculas_o_espacios_se_rechaza[tecnolog\xeda norte s.a.] PASSED [ 45%]
+tests/test_proveedores_api.py::test_duplicado_por_mayusculas_o_espacios_se_rechaza[TECNOLOG\xcdA NORTE S.A.] PASSED [ 46%]
+tests/test_proveedores_api.py::test_duplicado_por_mayusculas_o_espacios_se_rechaza[  Tecnolog\xeda    Norte   S.A.  ] PASSED [ 47%]
+tests/test_proveedores_api.py::test_bd_rechaza_duplicado_aunque_se_salte_la_validacion PASSED [ 48%]
+tests/test_proveedores_api.py::test_editar_proveedor PASSED              [ 50%]
+tests/test_proveedores_api.py::test_editar_cambiando_solo_mayusculas_de_su_propio_nombre PASSED [ 51%]
+tests/test_proveedores_api.py::test_editar_a_nombre_de_otro_proveedor_se_rechaza PASSED [ 52%]
+tests/test_proveedores_api.py::test_editar_inexistente_responde_404 PASSED [ 53%]
+tests/test_proveedores_api.py::test_eliminar_proveedor PASSED            [ 55%]
+tests/test_proveedores_api.py::test_api_rechaza_nombres_invalidos[Norte@Sur] PASSED [ 56%]
+tests/test_proveedores_api.py::test_api_rechaza_nombres_invalidos[<script>alert(1)</script>] PASSED [ 57%]
+tests/test_proveedores_api.py::test_api_rechaza_nombres_invalidos[   ] PASSED [ 58%]
+tests/test_proveedores_api.py::test_api_sin_sesion_responde_401 PASSED   [ 60%]
+tests/test_proveedores_api.py::test_web_muestra_script_rechazado_como_texto_escapado PASSED [ 61%]
+tests/test_proveedores_api.py::test_error_interno_no_expone_detalles PASSED [ 62%]
+tests/test_proveedores_api.py::test_web_crear_y_listar PASSED            [ 63%]
+tests/test_proveedores_api.py::test_web_duplicado_muestra_mensaje PASSED [ 65%]
+tests/test_proveedores_api.py::test_web_editar PASSED                    [ 66%]
+tests/test_proveedores_api.py::test_web_sin_sesion_redirige_a_login PASSED [ 67%]
+tests/test_proveedores_reglas.py::test_normalizar_recorta_y_compacta_espacios PASSED [ 68%]
+tests/test_proveedores_reglas.py::test_clave_ignora_mayusculas_y_espacios PASSED [ 70%]
+tests/test_proveedores_reglas.py::test_nombres_validos[Tecnolog\xeda Norte S.A.] PASSED [ 71%]
+tests/test_proveedores_reglas.py::test_nombres_validos[Servicios del Valle] PASSED [ 72%]
+tests/test_proveedores_reglas.py::test_nombres_validos[Ferreter\xeda P\xe9rez, Hijos (Sede 2)] PASSED [ 73%]
+tests/test_proveedores_reglas.py::test_nombres_validos[\xd1and\xfa 123] PASSED [ 75%]
+tests/test_proveedores_reglas.py::test_nombre_vacio_se_rechaza[] PASSED  [ 76%]
+tests/test_proveedores_reglas.py::test_nombre_vacio_se_rechaza[    ] PASSED [ 77%]
+tests/test_proveedores_reglas.py::test_nombre_vacio_se_rechaza[None] PASSED [ 78%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Norte@Sur] PASSED [ 80%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Proveedor #1] PASSED [ 81%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[A&B] PASSED [ 82%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Comercial-Norte] PASSED [ 83%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[<script>alert(1)</script>] PASSED [ 85%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[<b>Negrita</b>] PASSED [ 86%]
+tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Nombre'; DROP TABLE proveedores;--] PASSED [ 87%]
+tests/test_proveedores_reglas.py::test_longitud_limite PASSED            [ 88%]
+tests/test_qa_seguridad_controlada.py::test_nombre_rechazado_en_api[Norte@Sur] PASSED [ 90%]
+tests/test_qa_seguridad_controlada.py::test_nombre_rechazado_en_api[<script>alert(1)</script>] PASSED [ 91%]
+tests/test_qa_seguridad_controlada.py::test_error_validacion_no_refleja_entrada PASSED [ 92%]
+tests/test_qa_seguridad_controlada.py::test_api_sin_sesion PASSED        [ 93%]
+tests/test_security.py::test_hash_no_guarda_la_contrasena_en_texto_plano PASSED [ 95%]
+tests/test_security.py::test_verificar_contrasena_correcta PASSED        [ 96%]
+tests/test_security.py::test_verificar_contrasena_incorrecta PASSED      [ 97%]
+tests/test_security.py::test_misma_contrasena_genera_hashes_distintos PASSED [ 98%]
+tests/test_security.py::test_hash_malformado_no_valida PASSED            [100%]
+
+=============================== warnings summary ===============================
+../../licitaciones-qa-preparado-venv/lib/python3.14/site-packages/starlette/testclient.py:40
+  /home/byron/Universidad/QA/licitaciones_10_issues/qa_entrega/licitaciones-qa-preparado-venv/lib/python3.14/site-packages/starlette/testclient.py:40: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+../../licitaciones-qa-preparado-venv/lib/python3.14/site-packages/fastapi/routing.py:233: 86 warnings
+tests/test_proveedores_api.py: 1 warning
+  /home/byron/Universidad/QA/licitaciones_10_issues/qa_entrega/licitaciones-qa-preparado-venv/lib/python3.14/site-packages/fastapi/routing.py:233: DeprecationWarning: 'asyncio.iscoroutinefunction' is deprecated and slated for removal in Python 3.16; use inspect.iscoroutinefunction() instead
+    is_coroutine = asyncio.iscoroutinefunction(dependant.call)
+
+../../licitaciones-qa-preparado-venv/lib/python3.14/site-packages/starlette/_utils.py:39: 92 warnings
+tests/test_auth.py: 26 warnings
+tests/test_evaluacion_moneda.py: 2 warnings
+tests/test_licitaciones_ofertas.py: 8 warnings
+tests/test_proveedores_api.py: 49 warnings
+tests/test_qa_seguridad_controlada.py: 13 warnings
+  /home/byron/Universidad/QA/licitaciones_10_issues/qa_entrega/licitaciones-qa-preparado-venv/lib/python3.14/site-packages/starlette/_utils.py:39: DeprecationWarning: 'asyncio.iscoroutinefunction' is deprecated and slated for removal in Python 3.16; use inspect.iscoroutinefunction() instead
+    return asyncio.iscoroutinefunction(obj) or (callable(obj) and asyncio.iscoroutinefunction(obj.__call__))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 80 passed, 278 warnings in 1.40s =======================

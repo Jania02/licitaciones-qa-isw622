@@ -1,0 +1,14 @@
+{
+  "users": 5,
+  "duration_seconds": 30,
+  "requests": 150,
+  "errors": 0,
+  "error_percent": 0.0,
+  "p95_ms": 10.0,
+  "cpu_peak_percent": 15.0,
+  "ram_peak_bytes": 89096192,
+  "environment": "Linux-7.0.0-43-generic-x86_64-with-glibc2.43",
+  "logical_cpu_count": 12,
+  "locust_exit": 0,
+  "passed": true
+}
