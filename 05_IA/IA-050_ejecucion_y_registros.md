@@ -27,4 +27,9 @@ Completar lo que falta para cumplir la práctica: ejecutar los casos automatizad
 
 ## Revisión humana
 
-**Pendiente.** Un integrante debe revisar los scripts, repetir al menos una ejecución y registrar su decisión en `10_Revision_IA` (REV-058). Hasta entonces la decisión en `09_IA_Usos` es "Pendiente".
+- [x] Scripts de `qa_scripts/` y evidencias EV-030 a EV-052 leídos contra los REQ (con apoyo de Claude, IA-008).
+- [x] Ejecución repetida: CP-001 (EV-030) en el equipo de Jania02, 5 de 5 aprobadas, igual que el original (RUN-029, EV-054).
+- [x] Datos sintéticos; sin secretos en las evidencias.
+- Decisión: corregir y aprobar.
+- Cambio humano: en 06_Ejecuciones el ejecutor de RUN-006 a RUN-027 pasa de "Claude Code (IA-050)" a "DataBy (ejecución asistida por Claude Code, IA-050)", porque la ejecución la dirigió un integrante con una herramienta de IA.
+- Revisora y fecha: Jania02, 2026-11-26 (REV-058)
