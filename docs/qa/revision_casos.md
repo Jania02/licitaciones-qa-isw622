@@ -26,11 +26,10 @@ Cambios comunes a CP-001 a CP-022: se llenó **Técnica**; **Precondiciones** y 
 | CP-018 | REQ-009 | Agrega CRC 0,01 y el rango traslapado | Aprobador por rango; traslape rechazado |
 | CP-019 | REQ-010 | Pasos de ida y vuelta CRC y USD | USD 18 000,00 con tasa y fecha; CRC intacto |
 | CP-020 | REQ-014 | Perfil de carga y endpoint | p95 ≤ 1 500 ms; errores ≤ 5 %; CPU y RAM |
-| CP-021 | REQ-002 | Datos base y una variación por intento | 400 en las tres; nada guardado |
+| CP-021 | REQ-002 | Datos base y una variación por intento; **agrega publicar una licitación vencida** | 400 en las tres altas, sin guardar; publicar la vencida: 400 y sigue en Borrador |
 | CP-022 | REQ-010 | Tasa vigente 500 definida | 400 en ambas; sigue 500 |
 | CP-023 | REQ-004 | **Caso nuevo**: antes y después del cierre | Antes se acepta; después 400 |
 
 ## Para decidir
 
 - Las rutas y los códigos HTTP salen del código de los PR #32 a #42, no del enunciado.
-- REQ-002 exige cierre futuro "al crear o publicar"; CP-021 solo prueba la creación. Publicar una licitación vencida no tiene paso en las fichas.
