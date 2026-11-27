@@ -25,7 +25,7 @@ Todos tienen herramienta, proveedor, modelo, fecha, finalidad, prompt, salida o 
 | IA-003 | `IA-003_requisitos.md` | Aprobada (WGuillenDev, 2026-11-25): criterios, prioridades y casos, sobre las fichas de `756b40d`. No declara revisión de 06, 07, 08, 11 ni Word B5, llenados con la misma herramienta. |
 | IA-004 | `IA-004_riesgos.md` | Pendiente (Jania02) |
 | IA-005 | `IA-005_fichas_casos.md` | Pendiente |
-| IA-018 | `IA-018_pruebas_proveedores.md` (PR #44) | Parte inicial aprobada (WGuillenDev, 2026-11-25); seguimiento del 2026-11-26 pendiente |
+| IA-018 | `IA-018_pruebas_proveedores.md` (PR #44) | Parte inicial aprobada (WGuillenDev, 2026-11-25); seguimiento aprobado (WGuillenDev, 2026-11-26, `d8cfb82`) |
 | IA-025 | `IA-025_bug_001.md` (PR #45) | Aprobada (WGuillenDev, 2026-11-25) |
 | IA-048 | `IA-048_ejecuciones.md` | Pendiente |
 | IA-049 | `IA-049_usos_ia.md` | Pendiente |
@@ -44,3 +44,8 @@ Todos tienen herramienta, proveedor, modelo, fecha, finalidad, prompt, salida o 
 
 Revisión humana: **pendiente**.
 
+## Seguimiento 2026-11-26: aprobación de IA-018
+
+WGuillenDev confirmó la aprobación del seguimiento de IA-018 registrada en `d8cfb82`. Se refleja en `09_IA_Usos` y `10_Revision_IA`, enlazada con el registro y con EV-018. `01_Resumen` cuenta 7 revisiones vigentes (4 filas de IA-018 y 3 de IA-025). La relación de IA-018 con CP-001 a CP-004 es inferida por requisito.
+
+Revisión humana de IA-049: **pendiente**.
