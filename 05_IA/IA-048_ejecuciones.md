@@ -29,7 +29,8 @@ Entorno: Windows 11, Python 3.14.7, pytest 8.3.4, árbol de trabajo separado en 
 
 ## Revisión humana
 
-- [ ] Registros contrastados con las evidencias
-- [ ] Reproducción revisada
-- Decisión (aprobar / corregir / rechazar): pendiente
-- Revisor y fecha: pendiente
+- [x] Registros contrastados con las evidencias
+- [x] Reproducción revisada
+- Decisión (aprobar / corregir / rechazar): aprobar
+- Revisor y fecha: WGuillenDev, 2026-11-26
+- Versión revisada: `106ab75`
