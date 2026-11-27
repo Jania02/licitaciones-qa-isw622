@@ -129,4 +129,8 @@ def editar(db: Session, proveedor_id: int, nombre: str) -> Proveedor:
 def eliminar(db: Session, proveedor_id: int) -> None:
     proveedor = obtener(db, proveedor_id)
     db.delete(proveedor)
-    db.commit()
+    try:
+        db.commit()
+    except IntegrityError:
+        db.rollback()
+        raise ProveedorDuplicado("No se puede eliminar un proveedor con ofertas registradas.")

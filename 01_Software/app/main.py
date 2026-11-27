@@ -14,6 +14,7 @@ from app.database import Base, engine
 from app.models import Usuario
 from app.proveedores import router as proveedores_router
 from app.templating import templates
+from app.ofertas import router as ofertas_router
 from app.licitaciones import router as licitaciones_router
 
 BASE_DIR = Path(__file__).parent
@@ -53,6 +54,7 @@ def manejar_error_interno(request: Request, exc: Exception):
 
 app.include_router(auth_router)
 app.include_router(proveedores_router)
+app.include_router(ofertas_router)
 app.include_router(licitaciones_router)
 
 
