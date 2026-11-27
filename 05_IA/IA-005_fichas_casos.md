@@ -39,3 +39,7 @@ Incorporado: trazabilidad de IA-003; historial de la aprobación anterior en las
 Prompt (resumen): completar CP-021 con el intento de publicar una licitación vencida y verificar las 23 fichas y Word A3, A5 y A10.
 
 Incorporado: paso y oráculo de publicación vencida en CP-021 (título, `03_Requisitos` y `docs/qa/requisitos.md`); en Word A5, CP-011 pasa a figurar como automatizado. Comprobación por script de requisitos, tipos, A3, A5 y A10 contra `05_Casos`. No se ejecutó ningún caso. Revisión humana: aprobada sobre `6333579` (ver arriba).
+
+## Controles confirmados (2026-11-26)
+
+WGuillenDev confirmó las aserciones (resultados esperados) y los datos de las 23 fichas. Constan como `Sí` en `10_Revision_IA`; la ejecución no aplica porque los casos no se ejecutaron en esta intervención.

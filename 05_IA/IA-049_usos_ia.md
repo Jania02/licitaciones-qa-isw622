@@ -48,3 +48,7 @@ Los identificadores `REV-###` se conservan; quedan saltos donde se retiraron las
 - Revisor y fecha: WGuillenDev, 2026-11-26
 - Versión revisada: `5e9aa43`
 - Corrección pedida y aplicada: una sola fila para el seguimiento de IA-018, vinculada a REQ-001, REQ-011, REQ-012 y EV-018; se retira la relación inferida con CP-001, CP-002 y CP-004 (también la de CP-003); las revisiones anteriores se conservan como historial.
+
+## Controles confirmados (2026-11-26)
+
+WGuillenDev confirmó las aserciones y los datos de IA-005 y los controles del seguimiento de IA-018 (su registro está en el PR #44). Actualizados en `10_Revision_IA`. El oráculo y los datos de IA-002, IA-048 e IA-049 siguen en `Pendiente`.
