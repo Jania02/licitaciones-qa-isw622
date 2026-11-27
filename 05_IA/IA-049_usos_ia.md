@@ -52,3 +52,5 @@ Los identificadores `REV-###` se conservan; quedan saltos donde se retiraron las
 ## Controles confirmados (2026-11-26)
 
 WGuillenDev confirmó las aserciones y los datos de IA-005 y los controles del seguimiento de IA-018 (su registro está en el PR #44). Actualizados en `10_Revision_IA`. Después confirmó el oráculo y los datos de IA-002, IA-048 e IA-049, también actualizados en `10_Revision_IA`.
+
+También confirmó los bordes de IA-025 (CP-010 a CP-012), actualizados en `10_Revision_IA`; su registro está en el PR #45.
