@@ -7,7 +7,7 @@ Criterios resumidos del enunciado, sección 3. La prioridad es una propuesta.
 | REQ-001 | Proveedores | Crear, editar y listar; nombres equivalentes tras recortar, compactar espacios e ignorar mayúsculas se rechazan | Alta | CP-001, CP-002 |
 | REQ-002 | Licitaciones | Código único sin distinguir mayúsculas ni espacios laterales; título no vacío, presupuesto > 0 y cierre futuro al crear o publicar | Alta | CP-008, CP-021 |
 | REQ-003 | Estados | Solo Borrador → Publicada o Cerrada y Publicada → Cerrada | Alta | CP-009 |
-| REQ-004 | Vencimiento | Ofertas solo en Publicadas y antes del cierre; exactamente en el cierre se rechazan | Alta | CP-010, CP-011 |
+| REQ-004 | Vencimiento | Ofertas solo en Publicadas y antes del cierre; exactamente en el cierre se rechazan | Alta | CP-010, CP-011, CP-023 |
 | REQ-005 | Montos | 0 < oferta ≤ presupuesto | Alta | CP-012 |
 | REQ-006 | Duplicados | Una oferta por proveedor y licitación, rechazada también por la base de datos | Alta | CP-013 |
 | REQ-007 | Mejor oferta | Gana la menor; en empate, la primera registrada; sin ofertas: "Sin ofertas válidas" | Alta | CP-016 |
@@ -47,3 +47,4 @@ Resumen de cada caso; las fichas están en la hoja `05_Casos`.
 | CP-020 | Rendimiento | 5 usuarios y 30 s: p95 ≤ 1 500 ms y errores ≤ 5 % |
 | CP-021 | Borde | Título vacío, presupuesto 0 y cierre pasado rechazados |
 | CP-022 | Borde | Tasa 0 o negativa rechazada |
+| CP-023 | Unitaria | Oferta antes del cierre se acepta y después se rechaza |
