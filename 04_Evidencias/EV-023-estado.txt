@@ -1,0 +1,1 @@
+EJECUTADO Y APROBADO. Carga local con Locust: 5 usuarios durante 30 segundos, 150 consultas al listado, 0 errores, p95 10 ms, CPU máxima 15 %, RAM máxima 89096192 bytes. Evidencia completa en EV-023-rendimiento/resumen.json, CSV y locust.log. Se utilizó una base SQLite temporal y servidor en loopback.

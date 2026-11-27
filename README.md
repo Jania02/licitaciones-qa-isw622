@@ -43,7 +43,7 @@ pytest -v
 ## Base de datos
 
 SQLite en `01_Software/licitaciones.db` (ruta configurable en `.env`).
-Reinicio y carga de datos sintéticos: _pendiente (issue de seed)_.
+Reinicio y carga de datos sintéticos (detener el servidor antes): desde `01_Software`, ejecutar `python seed.py --reset`. **Borra los datos de la BD SQLite configurada**. Usar únicamente con datos de laboratorio. Incluye P1/P2, L1, ofertas, tasa 500, rangos y tres escenarios de frontera. El usuario de prueba se crea con las variables de `.env`.
 
 ## Usuarios de prueba
 
@@ -88,3 +88,15 @@ un mensaje genérico sin detalles.
 2. Commits pequeños y descriptivos.
 3. Abrir Pull Request hacia `main` con `Closes #<issue>`; otro integrante lo revisa y aprueba.
 4. Nunca hacer push directo a `main`.
+
+## API de licitaciones y ofertas
+
+`GET/POST /api/licitaciones`, `GET/PUT/DELETE /api/licitaciones/{id}`, `PATCH /api/licitaciones/{id}/estado`, `GET/POST /api/ofertas`, `GET/PUT/DELETE /api/ofertas/{id}`. Usar sesión autenticada. 201 para altas, 200 para consultas/ediciones, 204 para bajas, 400 para reglas, 401 sin sesión, 404 inexistente, 409 duplicado/conflicto, 422 estructura inválida. Cierres ISO 8601 con zona horaria.
+
+## Postman
+
+Importar `01_Software/postman/licitaciones.postman_collection.json`, configurar la contraseña sintética local en la variable `password` (no exportarla) y ejecutar en localhost. La colección valida respuestas positivas y negativas con sesión y elimina el proveedor sintético creado.
+
+## Rendimiento local
+
+Desde `01_Software`, instalar `pip install -r requirements-qa.txt` y ejecutar `python performance/run.py`. Crea una BD temporal, inicia Uvicorn en loopback y ejecuta 5 VU durante 30 segundos con Locust. Reportes reales en `04_Evidencias/EV-023-rendimiento/`.
