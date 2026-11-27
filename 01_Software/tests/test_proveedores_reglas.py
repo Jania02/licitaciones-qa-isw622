@@ -53,6 +53,25 @@ def test_caracteres_no_permitidos_se_rechazan(nombre):
     assert error.value.mensaje == MSG_CARACTERES
 
 
+@pytest.mark.parametrize("nombre", [
+    "Norte\tSur",
+    "Norte\nSur",
+    "Norte\r\nSur",
+    "\tTecnología Norte S.A.",
+    "Tecnología Norte S.A.\n",
+    "Norte\x00Sur",
+])
+def test_tabulaciones_saltos_y_control_se_rechazan(nombre):
+    # Se rechazan antes de normalizar: no se convierten en espacios.
+    with pytest.raises(ErrorValidacion) as error:
+        validar_nombre(nombre)
+    assert error.value.mensaje == MSG_CARACTERES
+
+
+def test_espacios_normales_siguen_permitidos():
+    assert validar_nombre("  Tecnología   Norte S.A.  ") == "Tecnología Norte S.A."
+
+
 def test_longitud_limite():
     assert validar_nombre("A" * 100) == "A" * 100
     with pytest.raises(ErrorValidacion) as error:
