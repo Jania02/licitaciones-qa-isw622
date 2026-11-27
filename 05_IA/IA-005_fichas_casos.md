@@ -32,3 +32,9 @@ La aprobación registrada en IA-003 corresponde a las fichas del commit `756b40d
 ## Seguimiento 2026-11-26: preparación de la revisión
 
 Incorporado: trazabilidad de IA-003; historial de la aprobación anterior en las notas de `05_Casos`; `01_Resumen` cuenta solo aprobaciones vigentes; precondiciones precisadas en CP-007 y CP-013; guía `docs/qa/revision_casos.md`. Revisión humana: **pendiente**.
+
+## Seguimiento 2026-11-26: CP-021 y verificación
+
+Prompt (resumen): completar CP-021 con el intento de publicar una licitación vencida y verificar las 23 fichas y Word A3, A5 y A10.
+
+Incorporado: paso y oráculo de publicación vencida en CP-021 (título, `03_Requisitos` y `docs/qa/requisitos.md`); en Word A5, CP-011 pasa a figurar como automatizado. Comprobación por script de requisitos, tipos, A3, A5 y A10 contra `05_Casos`. No se ejecutó ningún caso. Revisión humana: **pendiente**.
