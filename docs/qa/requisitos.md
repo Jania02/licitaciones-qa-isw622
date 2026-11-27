@@ -45,6 +45,6 @@ Resumen de cada caso; las fichas están en la hoja `05_Casos`.
 | CP-018 | Unitaria | Aprobador en las fronteras de cada rango |
 | CP-019 | Funcional | CRC 9 000 000 con tasa 500 muestra USD 18 000,00 sin cambiar la BD |
 | CP-020 | Rendimiento | 5 usuarios y 30 s: p95 ≤ 1 500 ms y errores ≤ 5 % |
-| CP-021 | Borde | Título vacío, presupuesto 0 y cierre pasado rechazados |
+| CP-021 | Borde | Título vacío, presupuesto 0, cierre pasado y publicación vencida rechazados |
 | CP-022 | Borde | Tasa 0 o negativa rechazada |
 | CP-023 | Unitaria | Oferta antes del cierre se acepta y después se rechaza |
