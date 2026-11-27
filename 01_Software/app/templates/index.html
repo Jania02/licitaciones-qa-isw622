@@ -1,15 +1,27 @@
 {% extends "base.html" %}
-{% block titulo %}Inicio{% endblock %}
+{% block titulo %}Dashboard{% endblock %}
 {% block contenido %}
 <section class="tarjeta">
   <h1>Bienvenido, {{ usuario.username }}</h1>
-  <p>Seleccione un módulo del menú.</p>
-  <ul>
-    <li><a href="/proveedores">Proveedores</a></li>
-    <li><a href="/licitaciones">Licitaciones</a></li>
-    <li><a href="/ofertas">Ofertas</a></li>
-    <li><a href="/evaluacion">Evaluación</a></li>
-    <li><a href="/moneda">Tipo de cambio</a></li>
-  </ul>
+  <p class="ayuda">Resumen general del sistema.</p>
+  <div class="stats">
+    <div class="stat"><small>Proveedores</small><b id="s-prov">–</b></div>
+    <div class="stat"><small>Licitaciones</small><b id="s-lic">–</b></div>
+    <div class="stat"><small>Ofertas</small><b id="s-of">–</b></div>
+    <div class="stat"><small>CRC por USD</small><b id="s-tc">–</b></div>
+  </div>
 </section>
+<div class="modulos">
+  <a href="/proveedores">Proveedores<small>Registro y edición</small></a>
+  <a href="/licitaciones">Licitaciones<small>Publicación y cierre</small></a>
+  <a href="/ofertas">Ofertas<small>Por licitación y proveedor</small></a>
+  <a href="/evaluacion">Evaluación<small>Mejor oferta y aprobador</small></a>
+  <a href="/moneda">Tipo de cambio<small>CRC / USD</small></a>
+</div>
+<script>
+(async()=>{const g=async u=>{try{const r=await fetch(u);return r.ok?r.json():null}catch{return null}};
+const set=(id,v)=>{document.getElementById(id).textContent=v??'–'};
+const [p,l,o,t]=await Promise.all(['/api/proveedores','/api/licitaciones','/api/ofertas','/api/tasas'].map(g));
+set('s-prov',p?.length);set('s-lic',l?.length);set('s-of',o?.length);set('s-tc',t?.length?Number(t[t.length-1].crc_por_usd).toLocaleString():null);})();
+</script>
 {% endblock %}

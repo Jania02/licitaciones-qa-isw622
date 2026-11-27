@@ -1,3 +1,6 @@
+{% macro item(href, texto, icono) -%}
+<a href="{{ href }}" class="nav-item"><svg viewBox="0 0 24 24" aria-hidden="true">{{ icono|safe }}</svg><span>{{ texto }}</span></a>
+{%- endmacro %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,23 +8,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block titulo %}Licitaciones{% endblock %}</title>
   <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/ui.js" defer></script>
 </head>
-<body>
-  <header class="barra">
-    <span class="marca">Gestión de Licitaciones</span>
-    {% if usuario %}
-    <nav>
-      <a href="/">Inicio</a>
-      <a href="/proveedores">Proveedores</a>
+<body class="{{ 'con-app' if usuario else 'sin-app' }}">
+{% if usuario %}
+<div class="app">
+  <aside class="lateral">
+    <div class="logo"><span class="logo-i">L</span><span class="logo-t">Licitaciones<small>Gestión QA</small></span></div>
+    <p class="grupo">Menú</p>
+    <nav class="menu">
+      {{ item('/', 'Dashboard', '<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>') }}
+      {{ item('/proveedores', 'Proveedores', '<path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/>') }}
+      {{ item('/licitaciones', 'Licitaciones', '<path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/>') }}
+      {{ item('/ofertas', 'Ofertas', '<path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.2"/>') }}
+      {{ item('/evaluacion', 'Evaluación', '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>') }}
+      {{ item('/moneda', 'Tipo de cambio', '<path d="M7 4L3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/>') }}
     </nav>
-    <form method="post" action="/logout" class="salir">
-      <span>{{ usuario.username }}</span>
-      <button type="submit">Cerrar sesión</button>
+    <form method="post" action="/logout" class="perfil">
+      <span class="avatar">{{ usuario.username[:1]|upper }}</span>
+      <span class="perfil-t">{{ usuario.username }}<small>Sesión activa</small></span>
+      <button type="submit" class="sec" title="Cerrar sesión" aria-label="Cerrar sesión"><svg viewBox="0 0 24 24"><path d="M9 21H5V3h4M16 17l5-5-5-5M21 12H9"/></svg></button>
     </form>
-    {% endif %}
-  </header>
-  <main class="contenido">
-    {% block contenido %}{% endblock %}
-  </main>
+  </aside>
+  <div class="principal">
+    <header class="tope"><span class="miga">Inicio <i>/</i> <b>{{ self.titulo() }}</b></span></header>
+    <main class="contenido">{% block contenido %}{% endblock %}</main>
+  </div>
+</div>
+{% else %}
+<main class="contenido">
+  <div class="logo solo"><span class="logo-i">L</span><span class="logo-t">Licitaciones<small>Gestión QA</small></span></div>
+  {{ self.contenido() }}
+</main>
+{% endif %}
 </body>
 </html>
