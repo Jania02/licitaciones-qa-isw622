@@ -35,3 +35,12 @@ Todos tienen herramienta, proveedor, modelo, fecha, finalidad, prompt, salida o 
 - [ ] Hojas 09 y 10 contrastadas con los archivos de `05_IA`
 - Decisión (aprobar / corregir / rechazar): pendiente
 - Revisor y fecha: pendiente
+
+## Seguimiento 2026-11-26: historial, EV-018 y trazabilidad
+
+- `10_Revision_IA`: las 22 aprobaciones de IA-003 y la aprobación inicial de IA-018 para CP-003 quedan marcadas como historial. `01_Resumen` cuenta 6 revisiones vigentes (3 de IA-018 y 3 de IA-025).
+- `11_Evidencias`: EV-018 (`04_Evidencias/EV-018-pytest-tras-pr32.txt`, PR #44). La suite en `2d46001` reprodujo 98 aprobadas el 2026-11-26.
+- `09_IA_Usos`: trazabilidad completa de IA-003.
+
+Revisión humana: **pendiente**.
+
