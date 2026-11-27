@@ -1,0 +1,14 @@
+EVIDENCIA EV-033 — CP-004 (Seguridad)
+Fecha: 2026-11-26 21:19:22
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, pytest 8.3.4, SQLite temporal
+Comando: cd 01_Software && -m pytest -q -p no:warnings -rA tests/test_proveedores_api.py::test_web_muestra_script_rechazado_como_texto_escapado tests/test_qa_seguridad_controlada.py::test_nombre_rechazado_en_api
+Código de salida: 0
+
+...                                                                      [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_proveedores_api.py::test_web_muestra_script_rechazado_como_texto_escapado
+PASSED tests/test_qa_seguridad_controlada.py::test_nombre_rechazado_en_api[Norte@Sur]
+PASSED tests/test_qa_seguridad_controlada.py::test_nombre_rechazado_en_api[<script>alert(1)</script>]
+3 passed in 0.12s

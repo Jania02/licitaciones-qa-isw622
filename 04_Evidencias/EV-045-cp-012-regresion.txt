@@ -1,0 +1,19 @@
+EVIDENCIA EV-045 — CP-012 (Regresión)
+Fecha: 2026-11-26 21:19:30
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, pytest 8.3.4, SQLite temporal
+Comando: cd 01_Software && -m pytest -q -p no:warnings -rA tests/test_bug_001_cierre.py::test_cp012_montos_en_los_limites tests/test_licitaciones_ofertas.py::test_montos
+Código de salida: 0
+
+........                                                                 [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_bug_001_cierre.py::test_cp012_montos_en_los_limites[0-False]
+PASSED tests/test_bug_001_cierre.py::test_cp012_montos_en_los_limites[-1-False]
+PASSED tests/test_bug_001_cierre.py::test_cp012_montos_en_los_limites[10000000.00-True]
+PASSED tests/test_bug_001_cierre.py::test_cp012_montos_en_los_limites[10000000.01-False]
+PASSED tests/test_licitaciones_ofertas.py::test_montos[0-False]
+PASSED tests/test_licitaciones_ofertas.py::test_montos[-1-False]
+PASSED tests/test_licitaciones_ofertas.py::test_montos[100-True]
+PASSED tests/test_licitaciones_ofertas.py::test_montos[100.01-False]
+8 passed in 0.01s

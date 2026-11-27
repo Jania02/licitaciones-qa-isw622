@@ -1,0 +1,18 @@
+EVIDENCIA EV-046 — CP-023 (Regresión)
+Fecha: 2026-11-26 21:19:30
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, pytest 8.3.4, SQLite temporal
+Comando: cd 01_Software && -m pytest -q -p no:warnings -rA tests/test_bug_001_cierre.py::test_regresion_antes_del_cierre_se_acepta tests/test_bug_001_cierre.py::test_regresion_despues_del_cierre_se_rechaza tests/test_licitaciones_ofertas.py::test_vencimiento
+Código de salida: 0
+
+.......                                                                  [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_bug_001_cierre.py::test_regresion_antes_del_cierre_se_acepta
+PASSED tests/test_bug_001_cierre.py::test_regresion_despues_del_cierre_se_rechaza
+PASSED tests/test_licitaciones_ofertas.py::test_vencimiento[Publicada--1-True]
+PASSED tests/test_licitaciones_ofertas.py::test_vencimiento[Publicada-0-False]
+PASSED tests/test_licitaciones_ofertas.py::test_vencimiento[Publicada-1-False]
+PASSED tests/test_licitaciones_ofertas.py::test_vencimiento[Borrador--1-False]
+PASSED tests/test_licitaciones_ofertas.py::test_vencimiento[Cerrada--1-False]
+7 passed in 0.01s

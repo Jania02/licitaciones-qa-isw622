@@ -1,0 +1,15 @@
+EVIDENCIA EV-050 — CP-021 (Funcional por API sobre servidor local)
+Fecha: 2026-11-26 21:20:30
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, SQLite temporal, servidor Uvicorn local http://127.0.0.1:8011
+Base de datos: temporal, solo datos sintéticos (P1, P2, L1)
+Ejecutor: Claude Code (IA-050); revisión humana pendiente
+
+POST /api/licitaciones {"codigo": "LIC-X-tít", "titulo": "", "presupuesto_crc": "10000000.00", "cierre": "2026-11-29T03:20:29.334387+00:00"} -> 400 {"detail":"Código y título son obligatorios (máximo 60 y 200 caracteres)."}
+VERIFICACIÓN: título vacío rechazado (4xx) -> CUMPLE
+POST /api/licitaciones {"codigo": "LIC-X-pre", "titulo": "Equipo tecnológico", "presupuesto_crc": "0", "cierre": "2026-11-29T03:20:29.334387+00:00"} -> 400 {"detail":"Monto positivo con máximo dos decimales requerido."}
+VERIFICACIÓN: presupuesto 0 rechazado (4xx) -> CUMPLE
+POST /api/licitaciones {"codigo": "LIC-X-cie", "titulo": "Equipo tecnológico", "presupuesto_crc": "10000000.00", "cierre": "2026-11-27T02:20:29.334387+00:00"} -> 400 {"detail":"El cierre debe ser futuro."}
+VERIFICACIÓN: cierre pasado rechazado (4xx) -> CUMPLE
+
+RESULTADO: PASA (3/3 verificaciones)

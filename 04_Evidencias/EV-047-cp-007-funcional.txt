@@ -1,0 +1,19 @@
+EVIDENCIA EV-047 — CP-007 (Funcional por API sobre servidor local)
+Fecha: 2026-11-26 21:20:30
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, SQLite temporal, servidor Uvicorn local http://127.0.0.1:8011
+Base de datos: temporal, solo datos sintéticos (P1, P2, L1)
+Ejecutor: Claude Code (IA-050); revisión humana pendiente
+
+--- servidor detenido y reiniciado (misma base de datos) ---
+POST /api/auth/login {"username": "qa_local", "password": "***"} -> 200 {"usuario":"qa_local"}
+GET /api/proveedores  -> 200 [{"id":2,"nombre":"Servicios del Valle"},{"id":1,"nombre":"Tecnología Norte S.A."}]
+VERIFICACIÓN: los 2 proveedores persisten tras reiniciar -> CUMPLE
+GET /api/licitaciones  -> 200 [{"id":1,"codigo":"LIC-2026-001","titulo":"Equipo tecnológico","presupuesto_crc":"10000000.00","cierre":"2026-11-29T03:20:29.334387+00:00","estado":"Publicada"}]
+VERIFICACIÓN: L1 persiste con estado Publicada -> CUMPLE
+GET /api/ofertas  -> 200 [{"id":1,"licitacion_id":1,"proveedor_id":1,"monto_crc":"9000000.00","registrada_en":"2026-11-27T03:20:29.356782+00:00"},{"id":2,"licitacion_id":1,"proveedor_id":2,"monto_crc":"9500000.00","registrada_en":"2026-11-27T03:20:29.360106+00:00"}]
+VERIFICACIÓN: las 2 ofertas persisten -> CUMPLE
+POST /api/ofertas {"licitacion_id": 1, "proveedor_id": 1, "monto_crc": "9000000.00"} -> 409 {"detail":"Oferta duplicada o referencia no disponible."}
+VERIFICACIÓN: oferta duplicada de P1 rechazada también tras reiniciar (409) -> CUMPLE
+
+RESULTADO: PASA (4/4 verificaciones)

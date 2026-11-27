@@ -1,0 +1,20 @@
+EVIDENCIA EV-049 — CP-019 (Funcional por API sobre servidor local)
+Fecha: 2026-11-26 21:20:30
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, SQLite temporal, servidor Uvicorn local http://127.0.0.1:8011
+Base de datos: temporal, solo datos sintéticos (P1, P2, L1)
+Ejecutor: Claude Code (IA-050); revisión humana pendiente
+
+POST /api/ofertas {"licitacion_id": 1, "proveedor_id": 1, "monto_crc": "9000000.00"} -> 201 {"id":1,"licitacion_id":1,"proveedor_id":1,"monto_crc":"9000000.00","registrada_en":"2026-11-27T03:20:29.356782+00:00"}
+POST /api/ofertas {"licitacion_id": 1, "proveedor_id": 2, "monto_crc": "9500000.00"} -> 201 {"id":2,"licitacion_id":1,"proveedor_id":2,"monto_crc":"9500000.00","registrada_en":"2026-11-27T03:20:29.360106+00:00"}
+POST /api/tasas {"crc_por_usd": "500"} -> 201 {"id":1,"crc_por_usd":"500","fecha":"2026-11-27T03:20:29.362759+00:00","fuente":"manual"}
+VERIFICACIÓN: tasa 500 registrada (201) -> CUMPLE
+GET /api/moneda?moneda=USD  -> 200 {"moneda":"USD","tasa":{"id":1,"crc_por_usd":"500","fecha":"2026-11-27T03:20:29.362759+00:00","fuente":"manual"},"licitaciones":[{"codigo":"LIC-2026-001","presupuesto":"20000.00"}],"ofertas":[{"id":1,"monto":"18000.00"},{"id":2,"monto":"19000.00"}]}
+VERIFICACIÓN: oferta de P1 se visualiza como 18000.00 USD -> CUMPLE
+GET /api/moneda?moneda=CRC  -> 200 {"moneda":"CRC","tasa":{"id":1,"crc_por_usd":"500","fecha":"2026-11-27T03:20:29.362759+00:00","fuente":"manual"},"licitaciones":[{"codigo":"LIC-2026-001","presupuesto":"10000000.00"}],"ofertas":[{"id":1,"monto":"9000000.00"},{"id":2,"monto":"9500000.00"}]}
+VERIFICACIÓN: al volver a CRC la oferta de P1 sigue siendo 9000000.00 -> CUMPLE
+VERIFICACIÓN: se muestran tasa y fecha utilizadas -> CUMPLE
+GET /api/ofertas?licitacion_id=1  -> 200 [{"id":1,"licitacion_id":1,"proveedor_id":1,"monto_crc":"9000000.00","registrada_en":"2026-11-27T03:20:29.356782+00:00"},{"id":2,"licitacion_id":1,"proveedor_id":2,"monto_crc":"9500000.00","registrada_en":"2026-11-27T03:20:29.360106+00:00"}]
+VERIFICACIÓN: importes guardados en la BD (API de ofertas) permanecen en CRC -> CUMPLE
+
+RESULTADO: PASA (5/5 verificaciones)

@@ -1,0 +1,37 @@
+EVIDENCIA EV-032 — CP-003 (Unitaria)
+Fecha: 2026-11-26 21:19:22
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, pytest 8.3.4, SQLite temporal
+Comando: cd 01_Software && -m pytest -q -p no:warnings -rA tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza
+Código de salida: 0
+
+..........................                                               [100%]
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Norte@Sur]
+PASSED tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Proveedor #1]
+PASSED tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[A&B]
+PASSED tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Comercial-Norte]
+PASSED tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[<script>alert(1)</script>]
+PASSED tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[<b>Negrita</b>]
+PASSED tests/test_proveedores_reglas.py::test_caracteres_no_permitidos_se_rechazan[Nombre'; DROP TABLE proveedores;--]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[_]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[/]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[\\]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[!]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[?]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[:]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[;]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza["]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[']
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[*]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[+]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[=]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[%]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[$]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[[]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[]]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[{]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[}]
+PASSED tests/test_proveedores_seguridad_qa.py::test_simbolo_no_admitido_se_rechaza[|]
+26 passed in 0.02s

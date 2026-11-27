@@ -1,0 +1,17 @@
+EVIDENCIA EV-034 — CP-005 (Seguridad)
+Fecha: 2026-11-26 21:19:23
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, pytest 8.3.4, SQLite temporal
+Comando: cd 01_Software && -m pytest -q -p no:warnings -rA tests/test_proveedores_api.py::test_error_interno_no_expone_detalles tests/test_qa_seguridad_controlada.py::test_error_validacion_no_refleja_entrada
+Código de salida: 0
+
+..                                                                       [100%]
+==================================== PASSES ====================================
+____________________ test_error_interno_no_expone_detalles _____________________
+------------------------------ Captured log call -------------------------------
+ERROR    licitaciones:main.py:54 Error no controlado en /api/_prueba_error
+NoneType: None
+=========================== short test summary info ============================
+PASSED tests/test_proveedores_api.py::test_error_interno_no_expone_detalles
+PASSED tests/test_qa_seguridad_controlada.py::test_error_validacion_no_refleja_entrada
+2 passed in 0.05s

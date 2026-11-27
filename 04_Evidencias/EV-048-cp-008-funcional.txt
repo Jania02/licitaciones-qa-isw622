@@ -1,0 +1,17 @@
+EVIDENCIA EV-048 — CP-008 (Funcional por API sobre servidor local)
+Fecha: 2026-11-26 21:20:30
+Commit: 8a05585
+Entorno: Linux 7.0.0-44-generic, Python 3.14.4, SQLite temporal, servidor Uvicorn local http://127.0.0.1:8011
+Base de datos: temporal, solo datos sintéticos (P1, P2, L1)
+Ejecutor: Claude Code (IA-050); revisión humana pendiente
+
+POST /api/proveedores {"nombre": "Tecnología Norte S.A."} -> 201 {"id":1,"nombre":"Tecnología Norte S.A."}
+POST /api/proveedores {"nombre": "Servicios del Valle"} -> 201 {"id":2,"nombre":"Servicios del Valle"}
+POST /api/licitaciones {"codigo": "LIC-2026-001", "titulo": "Equipo tecnológico", "presupuesto_crc": "10000000.00", "cierre": "2026-11-29T03:20:29.334387+00:00"} -> 201 {"id":1,"codigo":"LIC-2026-001","titulo":"Equipo tecnológico","presupuesto_crc":"10000000.00","cierre":"2026-11-29T03:20:29.334387+00:00","estado":"Borrador"}
+VERIFICACIÓN: alta de L1 responde 201 en Borrador -> CUMPLE
+PATCH /api/licitaciones/1/estado {"estado": "Publicada"} -> 200 {"id":1,"codigo":"LIC-2026-001","titulo":"Equipo tecnológico","presupuesto_crc":"10000000.00","cierre":"2026-11-29T03:20:29.334387+00:00","estado":"Publicada"}
+VERIFICACIÓN: publicar L1 responde 200 y estado Publicada -> CUMPLE
+POST /api/licitaciones {"codigo": "  lic-2026-001  ", "titulo": "Equipo tecnológico", "presupuesto_crc": "10000000.00", "cierre": "2026-11-29T03:20:29.334387+00:00"} -> 409 {"detail":"Código de licitación duplicado."}
+VERIFICACIÓN: código repetido (otras mayúsculas/espacios) responde 409 -> CUMPLE
+
+RESULTADO: PASA (3/3 verificaciones)
