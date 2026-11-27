@@ -35,3 +35,11 @@ No se ejecutaron la colección de Postman ni la prueba de carga. Las versiones d
 - [ ] Coincidencia entre 02_Proyecto y el Word verificada
 - Decisión (aprobar / corregir / rechazar): pendiente
 - Revisor y fecha: pendiente
+
+## Seguimiento 2026-11-26: datos confirmados y ambiente de referencia
+
+Prompt (resumen): completar curso, entrega prevista, integrantes y roles confirmados por WGuillenDev; documentar su equipo como ambiente de referencia con versiones y comandos repetibles.
+
+Incorporado: `02_Proyecto`, portada, A1, A4 y A6; usuarios de GitHub en el repositorio (nombres completos y correos solo en la copia de entrega); `docs/qa/ambiente_referencia.md`. Los comandos se repitieron en una copia limpia de `543df10`: 80 aprobadas, datos cargados, respuestas 200 y 401 esperadas y Locust 2.47.0.
+
+Los criterios de entrada y salida siguen como **propuestos**. Revisión humana: **pendiente**.
