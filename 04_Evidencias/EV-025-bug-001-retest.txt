@@ -1,0 +1,16 @@
+EV-025 | BUG-001 retest de CP-010
+Commit probado: f00ad0267ce3f00c92f279c93c9f0878018bd92f
+Fecha: 2026-11-25 09:32 -0600
+Comando: pytest -v tests/test_bug_001_cierre.py -k cp010
+
+============================= test session starts =============================
+platform win32 -- python (entorno virtual)
+rootdir: C:\dev\licitaciones-qa-isw622\01_Software
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collecting ... collected 10 items / 8 deselected / 2 selected
+
+tests/test_bug_001_cierre.py::test_cp010_unitaria_exactamente_al_cierre_se_rechaza PASSED [ 50%]
+tests/test_bug_001_cierre.py::test_cp010_api_exactamente_al_cierre_se_rechaza PASSED [100%]
+
+======================= 2 passed, 8 deselected in 0.08s =======================

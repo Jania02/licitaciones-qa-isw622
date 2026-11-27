@@ -1,0 +1,16 @@
+EV-025 | BUG-001 regresión CP-011
+Commit probado: a855c940b1ed4945de8cdafa609c6b15364cdf7d
+Fecha: 2026-11-25 09:59 -0600
+Comando: pytest -v tests/test_bug_001_cierre.py -k cp011
+
+============================= test session starts =============================
+platform win32 -- python (entorno virtual)
+rootdir: C:\dev\licitaciones-qa-isw622\01_Software
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collecting ... collected 16 items / 14 deselected / 2 selected
+
+tests/test_bug_001_cierre.py::test_cp011_api_oferta_en_estado_no_publicado_se_rechaza[Borrador] PASSED [ 50%]
+tests/test_bug_001_cierre.py::test_cp011_api_oferta_en_estado_no_publicado_se_rechaza[Cerrada] PASSED [100%]
+
+====================== 2 passed, 14 deselected in 0.15s =======================

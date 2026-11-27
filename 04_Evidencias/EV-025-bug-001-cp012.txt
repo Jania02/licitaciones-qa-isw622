@@ -1,0 +1,18 @@
+EV-025 | BUG-001 regresión CP-012
+Commit probado: a855c940b1ed4945de8cdafa609c6b15364cdf7d
+Fecha: 2026-11-25 10:00 -0600
+Comando: pytest -v tests/test_bug_001_cierre.py -k cp012
+
+============================= test session starts =============================
+platform win32 -- python (entorno virtual)
+rootdir: C:\dev\licitaciones-qa-isw622\01_Software
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collecting ... collected 16 items / 12 deselected / 4 selected
+
+tests/test_bug_001_cierre.py::test_cp012_montos_en_los_limites[0-False] PASSED [ 25%]
+tests/test_bug_001_cierre.py::test_cp012_montos_en_los_limites[-1-False] PASSED [ 50%]
+tests/test_bug_001_cierre.py::test_cp012_montos_en_los_limites[10000000.00-True] PASSED [ 75%]
+tests/test_bug_001_cierre.py::test_cp012_montos_en_los_limites[10000000.01-False] PASSED [100%]
+
+====================== 4 passed, 12 deselected in 0.01s =======================
