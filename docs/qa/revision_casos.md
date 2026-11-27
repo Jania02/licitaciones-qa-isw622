@@ -1,8 +1,10 @@
 # Revisión humana de las fichas (IA-005)
 
-Comparación de `05_Casos` entre la versión aprobada (`756b40d`) y la actual. Decidir por caso: aprobar, corregir o rechazar.
+**Decisión:** aprobadas las 23 fichas por WGuillenDev el 2026-11-26 sobre `6333579`.
 
-Cambios comunes a CP-001 a CP-022: se llenó **Técnica**; **Precondiciones** y **Datos** dejan de repetir el mismo texto; los pasos quedan numerados; el oráculo cita su REQ; se agregó IA-005; el estado pasa a `Pendiente` / `En revisión` y la aprobación anterior queda en Notas. **Modo** se llenó donde estaba vacío (todos salvo CP-010 a CP-012).
+Comparación de `05_Casos` entre la versión aprobada (`756b40d`) y la actual. 
+
+Cambios comunes a CP-001 a CP-022: se llenó **Técnica**; **Precondiciones** y **Datos** dejan de repetir el mismo texto; los pasos quedan numerados; el oráculo cita su REQ; se agregó IA-005; la aprobación anterior queda en Notas. **Modo** se llenó donde estaba vacío (todos salvo CP-010 a CP-012).
 
 | CP | REQ | Qué cambió en particular | Resultado esperado |
 |---|---|---|---|
@@ -30,6 +32,6 @@ Cambios comunes a CP-001 a CP-022: se llenó **Técnica**; **Precondiciones** y 
 | CP-022 | REQ-010 | Tasa vigente 500 definida | 400 en ambas; sigue 500 |
 | CP-023 | REQ-004 | **Caso nuevo**: antes y después del cierre | Antes se acepta; después 400 |
 
-## Para decidir
+## Alcance
 
 - Las rutas y los códigos HTTP salen del código de los PR #32 a #42, no del enunciado.

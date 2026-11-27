@@ -30,11 +30,12 @@ No se ejecutaron la colección de Postman ni la prueba de carga. Las versiones d
 
 ## Revisión humana
 
-- [ ] Nombres, roles y responsables confirmados
-- [ ] Ambiente, versiones y criterios revisados
-- [ ] Coincidencia entre 02_Proyecto y el Word verificada
-- Decisión (aprobar / corregir / rechazar): pendiente
-- Revisor y fecha: pendiente
+- [x] Nombres, roles y responsables confirmados
+- [x] Ambiente, versiones y criterios revisados
+- [x] Coincidencia entre 02_Proyecto y el Word verificada
+- Decisión (aprobar / corregir / rechazar): aprobar
+- Revisor y fecha: WGuillenDev, 2026-11-26
+- Versión revisada: `7134063`
 
 ## Seguimiento 2026-11-26: datos confirmados y ambiente de referencia
 
@@ -42,4 +43,8 @@ Prompt (resumen): completar curso, entrega prevista, integrantes y roles confirm
 
 Incorporado: `02_Proyecto`, portada, A1, A4 y A6; usuarios de GitHub en el repositorio (nombres completos y correos solo en la copia de entrega); `docs/qa/ambiente_referencia.md`. Los comandos se repitieron en una copia limpia de `543df10`: 80 aprobadas, datos cargados, respuestas 200 y 401 esperadas y Locust 2.47.0.
 
-Los criterios de entrada y salida siguen como **propuestos**. Revisión humana: **pendiente**.
+En esa versión los criterios estaban como propuestos. Revisión humana: aprobada sobre `7134063` (ver arriba).
+
+## Decisiones posteriores a la revisión (2026-11-26)
+
+WGuillenDev confirmó los criterios de salida y los de entrada con un ajuste: ejecutar `pytest` en el commit identificado y registrar el resultado; si una falla impide una prueba, documentar cuál. `543df10` queda como candidato verificado, la validación del build integrado se hace en la entrega y se omite el campo de grupo. Aplicado en `02_Proyecto` y en el Word.
